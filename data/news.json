@@ -1,14 +1,14 @@
 {
   "newsItems": [
     {
-      "date": "2020/03/11",
-      "url": "https://www.pref.saitama.lg.jp/a0001/news/page/2019/0311-04.html",
-      "text": "新型コロナウイルスに関連した患者の発生について（16例、17例目）"
+      "date": "2020/03/13",
+      "url": "http://www.pref.saitama.lg.jp/a0001/news/page/2019/0313-06.html",
+      "text": "新型コロナウイルスに関連した患者の発生について（25例目）"
     },
     {
-      "date": "2020/03/10",
-      "url": "https://www.pref.saitama.lg.jp/a0701/covid19/governors_message.html",
-      "text": "新たな患者の発生についての知事メッセージ（動画）"
+      "date": "2020/03/13",
+      "url": "http://www.pref.saitama.lg.jp/a0301/eventfascilities/index.html",
+      "text": "イベント・施設への影響"
     }
   ]
 }
