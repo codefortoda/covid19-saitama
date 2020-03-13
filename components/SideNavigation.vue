@@ -37,24 +37,6 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
-          <a
-            href="https://twitter.com/pref_saitama"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/pref.saitama"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -65,8 +47,8 @@
     "サイドメニュー項目を開く": "サイドメニュー項目を開く",
     "サイドメニュー項目を閉じる": "サイドメニュー項目を閉じる",
     "東京都": "東京都",
-    "新型コロナウイルス感染症": "【埼玉県】新型コロナウイルス",
-    "対策サイト": "感染症対策サイト（非公式）",
+    "新型コロナウイルス感染症": "埼玉県（非公式）：新型コロナウイルス",
+    "対策サイト": "感染症対策サイト",
     "都内の最新感染動向": "県内の最新感染動向",
     "新型コロナウイルス感染症が心配なときに": "新型コロナウイルス感染症が心配なときに",
     "お子様をお持ちの皆様へ": "お子様をお持ちの皆様へ",
