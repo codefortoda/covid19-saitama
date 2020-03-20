@@ -2,7 +2,7 @@
 
 ![](https://github.com/codefortoda/covid19-saitama/workflows/production%20deploy/badge.svg)
 
-[![埼玉県 新型コロナウイルス感染症対策サイト]()](https://stopcovid19.e-toda.jp/)
+[![埼玉県 新型コロナウイルス感染症対策サイト](https://stopcovid19.e-toda.jp/ogp.png)](https://stopcovid19.e-toda.jp/)
 
 ### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
 
