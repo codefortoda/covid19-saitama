@@ -6,7 +6,7 @@ from typing import List, Dict
 
 
 def process_patients() -> List:
-    df = pd.read_csv("jokyo20200317-0.csv", index_col=0)
+    df = pd.read_csv("jokyo20200320-0.csv", index_col=0)
 
     # 集計用にコピーします(deepcopyの方がいいかな？)
     df_summary = df
@@ -36,35 +36,46 @@ def process_patients() -> List:
 def process_inspections_summary() -> Dict:
     inspections_summary = {}
     patients_summary = []
-    df = pd.read_csv("kensa20200317-0.csv")
+    df = pd.read_csv("kensa20200320-0.csv")
     print(df.head)
-    patients_summary_data = df[["検査日","陽性確認者数"]]
-    #for key,value in patients_summary_data["検査日"].iteritem():
-    pat_dat = patients_summary_data.rename(columns={"検査日":"日付", "陽性確認者数":"小計"})
-    inspection_summary_data = df[["検査日","検査数（延べ人数）"]]
     
+    patients_summary_data = df[["検査日","陽性確認者数"]]
+    pat_dat = patients_summary_data.rename(columns={"検査日":"日付", "陽性確認者数":"小計"})
+    pat_json = json.loads(pat_dat.to_json(force_ascii=False))
+
+    inspection_summary_data = df[["検査日","検査数（延べ人数）"]]
     ins_dat = inspection_summary_data.rename(columns={"検査日":"labels", "検査数（延べ人数）":"県内"})
     ins_json = json.loads(ins_dat.to_json(force_ascii=False))
+    
     date = []
-    inspection_count = []
+
+    patient_counts = []
+    for ij in ins_json["県内"]:
+        patient_counts.append({ "日付":pat_json["日付"][ij], "小計":pat_json["小計"][ij] })
+
+    inspection_counts = []
     for ij in ins_json["labels"]:
         ild = datetime.strptime(ins_json["labels"][ij],'%Y/%m/%d').strftime("%m\/%d")
         date.append(ild)
     for ij in ins_json["県内"]:
-        inspection_count.append(ins_json["県内"][ij])
+        inspection_counts.append(ins_json["県内"][ij])
     
     inspections_summary = {
         "date": "2020\/03\/10 11:00",
         "data": {
-            "県内": inspection_count
+            "県内": inspection_counts
         },
         "labels": date
+    }
+    patients_summary = {
+        "date": "2020\/03\/10 11:00",
+        "data": patient_counts
     }
     return patients_summary, inspections_summary
 
 
 patients = process_patients()
-inspections_summary = process_inspections_summary()
+patients_summary, inspections_summary = process_inspections_summary()
 
 result = {
     "contacts": {
@@ -87,6 +98,7 @@ result = {
         "date": "2020\/03\/10 11:00",
         "data": []
     },
+    "patients_summary": patients_summary,
     "inspections_summary": inspections_summary,
     "better_patients_summary": {
         "date": "2020\/03\/10 19:00",
