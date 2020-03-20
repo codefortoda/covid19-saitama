@@ -1,6 +1,7 @@
 import csv
 import json
 import pandas as pd
+import shutil
 from datetime import datetime
 from typing import List, Dict
 
@@ -142,5 +143,10 @@ result = {
 }
 #print(patients)
 #print(inspections_summary)
+
+# create backup
+shutil.copy('../data/data.json', 'data.json.bak')
 with open('../data/data.json', 'w') as f:
     json.dump(result, f, ensure_ascii=False, indent=4)
+
+print("Done.")
