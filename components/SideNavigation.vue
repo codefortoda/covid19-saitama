@@ -37,6 +37,24 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-SocialLinkContainer">
+          <a
+            href="https://www.facebook.com/groups/578624605646457/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/facebook.png" alt="Facebook" />
+          </a>
+          <a
+            href="https://github.com/codefortoda/covid19-saitama"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/github.png" alt="Github" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
