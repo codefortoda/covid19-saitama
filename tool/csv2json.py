@@ -48,7 +48,8 @@ def process_inspections_summary() -> Dict:
     date = []
     inspection_count = []
     for ij in ins_json["labels"]:
-        date.append(ins_json["labels"][ij])
+        ild = datetime.strptime(ins_json["labels"][ij],'%Y/%m/%d').strftime("%m\/%d")
+        date.append(ild)
     for ij in ins_json["県内"]:
         inspection_count.append(ins_json["県内"][ij])
     
@@ -129,4 +130,5 @@ result = {
 }
 #print(patients)
 #print(inspections_summary)
-print(result)
+with open('../data/data.json', 'w') as f:
+    json.dump(result, f, ensure_ascii=False, indent=4)
