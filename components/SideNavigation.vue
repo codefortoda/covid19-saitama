@@ -77,9 +77,9 @@
                 target="_blank"
                 rel="noopener"
               >
-                <span class="no-image-title no-image-title-l"
-                  >OpenDataSaitama</span
-                >
+                <span class="no-image-title no-image-title-l">
+                  OpenDataSaitama
+                </span>
               </a>
               <a
                 :href="localePath('/about/#data')"
