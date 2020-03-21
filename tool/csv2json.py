@@ -80,32 +80,32 @@ patients_summary, inspections_summary = process_inspections_summary()
 
 result = {
     "contacts": {
-        "date": "2020\/03\/10 10:00",
+        "date": "2020/03/10 10:00",
         "data": []
     },
     "querents": {
-        "date": "2020\/03\/09 10:10",
+        "date": "2020/03/09 10:10",
         "data": []
     },
     "patients": {
-        "date": "2020\/03\/10 19:00",
+        "date": "2020/03/10 19:00",
         "data": patients
     },
     "discharges_summary": {
-        "date": "2020\/03\/10 19:00",
+        "date": "2020/03/10 19:00",
         "data": []
     },
     "inspections": {
-        "date": "2020\/03\/10 11:00",
+        "date": "2020/03/10 11:00",
         "data": []
     },
     "patients_summary": patients_summary,
     "inspections_summary": inspections_summary,
     "better_patients_summary": {
-        "date": "2020\/03\/10 19:00",
+        "date": "2020/03/10 19:00",
         "data": {}
     },
-    "lastUpdate": "2020\/03\/12 19:30",
+    "lastUpdate": "2020/03/12 19:30",
     "main_summary": {
         "attr": "検査実施人数",
         "value": 0,
