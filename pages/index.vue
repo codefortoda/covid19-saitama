@@ -15,7 +15,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="$t('人')"
-          :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
+          :url="
+            'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -26,7 +28,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
+          :url="
+            'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'
+          "
         />
       </v-col>
     </v-row>
