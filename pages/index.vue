@@ -7,7 +7,9 @@
     />
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
-      <confirmed-cases-details-card />
+      <v-col cols="12" md="6" class="DataCard">
+        <confirmed-cases-details-card />
+      </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           :title="$t('陽性患者数')"
