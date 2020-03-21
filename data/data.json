@@ -736,7 +736,7 @@
     },
     "inspections": {},
     "inspections_summary": {
-        "date": "2020\/03\/10 11:00",
+        "date": "2020\/03\/20 19:00",
         "data": {
             "県内": [],
             "その他": []
@@ -750,19 +750,19 @@
     "lastUpdate": "2020\/03\/20 19:00",
     "main_summary": {
         "attr": "検査実施人数",
-        "value": 483,
+        "value": 783,
         "children": [
             {
                 "attr": "陽性患者数",
-                "value": 25,
+                "value": 44,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 17,
+                        "value": 32,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 0
+                                "value": 32
                             },
                             {
                                 "attr": "重症",
@@ -772,7 +772,7 @@
                     },
                     {
                         "attr": "退院",
-                        "value": 8
+                        "value": 12
                     },
                     {
                         "attr": "死亡",
