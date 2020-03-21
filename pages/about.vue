@@ -32,6 +32,41 @@
         )
       }}
     </TextCard>
+    <a id="data" name="data" />
+    <TextCard title="データについて">
+      当サイトのデータは、埼玉県のオープンデータポータルサイトからデータを取得することで情報を更新しています。<br />
+      現在利用しているデータは以下の通りです。<br /><br />
+      <ul>
+        <li>
+          <a
+            href="https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo"
+            target="_blank"
+            rel="noopener"
+          >
+            新型コロナウイルス感染症の発生状況
+          </a>
+        </li>
+        <ul>
+          <li>
+            陽性患者の属性 (patients)
+          </li>
+          <li>
+            陽性患者数（日別） (patients_summary)
+          </li>
+        </ul>
+      </ul>
+      <br />行政の皆さまのご協力に感謝します。
+      <br />
+      <a
+        href="https://creativecommons.org/licenses/by/2.1/jp/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="/cc-by.svg" alt="CC BY 2.1" /><br />
+        このサイトのすべてのデータは「クリエイティブ・コモンズ 表示 2.1
+        日本」にて提供されています。</a
+      >
+    </TextCard>
     <TextCard :title="$t('当サイトへのリンクについて')">
       {{ $t('当サイトへのリンクは自由です。') }}
     </TextCard>
