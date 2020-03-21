@@ -8,6 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <confirmed-cases-details-card />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           :title="$t('陽性患者数')"
           :title-id="'number-of-confirmed-cases'"
@@ -274,6 +277,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
+import ConfirmedCasesDetailsCard from '@/components/ConfirmedCasesDetailsCard.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
@@ -287,6 +291,7 @@ import News from '@/data/news.json'
 export default {
   components: {
     PageHeader,
+    ConfirmedCasesDetailsCard,
     TimeBarChart,
     WhatsNew,
     DataTable
