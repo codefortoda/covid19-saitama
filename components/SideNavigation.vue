@@ -121,7 +121,7 @@
             </li>
           </ul>
         </div>
-        <small class="SideNavigation-Copyright">
+        <!-- <small class="SideNavigation-Copyright">
           {{ $t('このサイトの内容物は') }}
           <a
             :href="$t('https://creativecommons.org/licenses/by/2.1/jp/')"
@@ -132,7 +132,7 @@
             {{ $t('クリエイティブ・コモンズ 表示 2.1 日本') }}
           </a>
           {{ $t('の下に提供されています。') }}
-        </small>
+        </small> -->
       </div>
     </div>
   </div>
