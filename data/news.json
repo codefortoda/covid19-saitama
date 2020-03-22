@@ -1,9 +1,14 @@
 {
   "newsItems": [
     {
-      "date": "2020/03/21",
-      "url": "https://www.pref.saitama.lg.jp/a0001/news/page/2019/0321-01.html",
-      "text": "新型コロナウイルスに関連した患者等の発生について（県内46、47例目、県発表31、32例目）"
+      "date": "2020/03/22",
+      "url": "https://www.pref.saitama.lg.jp/a0001/news/page/2019/0322-01.html",
+      "text": "新型コロナウイルスに関連した患者等の発生について（県内53、54例目、県発表33、34例目）"
+    },
+    {
+      "date": "2020/03/22",
+      "url": "https://www.pref.saitama.lg.jp/a0001/news/page/2019/0322-02.html",
+      "text": "新型コロナウイルス感染症による死亡について"
     },
     {
       "date": "2020/03/13",
