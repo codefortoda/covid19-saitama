@@ -29,6 +29,6 @@ version 1.0, 2020/3/3
 
 ## Build with people
 
-* We will work together not only with Saitama Metropolitan Government, but also with anyone who wants to contribute.
+* We will work together with anyone who wants to contribute.
 * We will welcome any citizens' contributions.
 * We will continue improving this website with someone who needs information.
