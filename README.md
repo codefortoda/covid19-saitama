@@ -4,7 +4,7 @@
 
 [![埼玉県 新型コロナウイルス感染症対策サイト](https://stopcovid19.e-toda.jp/ogp.png)](https://stopcovid19.e-toda.jp/)
 
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### 日本語 | [English](./README_EN.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -27,10 +27,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## 元のサイトから派生したもの
 
-### 【北海道版】新型コロナウイルス感染症対策サイト
-[サイトへのリンク](https://stopcovid19.hokkaido.dev/)
-
-[GitHubへのリンク](https://github.com/codeforsapporo/covid19)
+[Link先](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/FORKED_SITES.md)を御覧ください。
 
 ## 開発者向け情報
 
