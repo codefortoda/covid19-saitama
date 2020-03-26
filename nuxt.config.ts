@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.e-toda.jp'
+        content: 'https://saitama.stopcovid19.jp'
       },
       {
         hid: 'og:title',
