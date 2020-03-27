@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.e-toda.jp'
+        content: 'https://saitama.stopcovid19.jp'
       },
       {
         hid: 'og:title',
@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.e-toda.jp/ogp.png'
+        content: 'https://saitama.stopcovid19.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -66,7 +66,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.e-toda.jp/ogp.png'
+        content: 'https://saitama.stopcovid19.jp/ogp.png'
       }
     ],
     link: [
