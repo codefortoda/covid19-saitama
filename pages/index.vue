@@ -8,6 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
+        <confirmed-cases-details-card />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           :title="$t('陽性患者数')"
           :title-id="'number-of-confirmed-cases'"
@@ -15,7 +18,9 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="$t('人')"
-          :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
+          :url="
+            'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'
+          "
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -26,7 +31,9 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
+          :url="
+            'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'
+          "
         />
       </v-col>
     </v-row>
@@ -274,6 +281,7 @@
 
 <script>
 import PageHeader from '@/components/PageHeader.vue'
+import ConfirmedCasesDetailsCard from '@/components/ConfirmedCasesDetailsCard.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
@@ -287,6 +295,7 @@ import News from '@/data/news.json'
 export default {
   components: {
     PageHeader,
+    ConfirmedCasesDetailsCard,
     TimeBarChart,
     WhatsNew,
     DataTable

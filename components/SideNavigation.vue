@@ -37,6 +37,103 @@
           <v-divider v-show="item.divider" class="SideNavigation-Divider" />
         </v-container>
       </v-list>
+      <div class="SideNavigation-Footer">
+        <div class="SideNavigation-SocialLinkContainer">
+          <a
+            href="http://line.me/ti/p/%40bfo2713i"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/line.png" alt="LINE" />
+          </a>
+          <a
+            href="https://twitter.com/pref_saitama"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/twitter.png" width="90px" height="90px" alt="Twitter" />
+          </a>
+          <a
+            href="https://www.facebook.com/pref.saitama"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/facebook.png" alt="Facebook" />
+          </a>
+          <a
+            href="https://github.com/codefortoda/covid19-saitama"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/github.png" alt="Github" />
+          </a>
+        </div>
+        <div class="SideNavigation-SponsorLinkContainer">
+          <ul>
+            <li>
+              <span>Data by:</span>
+              <a
+                href="https://opendata.pref.saitama.lg.jp/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="no-image-title no-image-title-l">
+                  OpenDataSaitama
+                </span>
+              </a>
+              <a
+                :href="localePath('/about/#data')"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="no-image-title">データについて</span><br />
+              </a>
+            </li>
+            <li>
+              <span>Operations by:</span>
+              <a href="https://codefortoda.org/" target="_blank" rel="noopener">
+                <span class="image-title">Code For TODA</span>
+                <img
+                  class="codefotoda-logo"
+                  src="/codefortoda.png"
+                  width="60px"
+                  height="60px"
+                  alt="Code For TODA"
+                />
+              </a>
+            </li>
+            <li>
+              <span>Powered by:</span>
+              <a
+                href="https://www.sakura.ad.jp/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="image-title">さくらインターネット</span>
+                <img
+                  class="sakura-internet-logo"
+                  src="/sakura.svg"
+                  width="176px"
+                  height="62px"
+                  alt="さくらインターネット"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- <small class="SideNavigation-Copyright">
+          {{ $t('このサイトの内容物は') }}
+          <a
+            :href="$t('https://creativecommons.org/licenses/by/2.1/jp/')"
+            target="_blank"
+            rel="license"
+            class="SideNavigation-LicenseLink"
+          >
+            {{ $t('クリエイティブ・コモンズ 表示 2.1 日本') }}
+          </a>
+          {{ $t('の下に提供されています。') }}
+        </small> -->
+      </div>
     </div>
   </div>
 </template>
@@ -60,7 +157,7 @@
     "知事からのメッセージ": "知事からのメッセージ",
     "当サイトについて": "当サイトについて",
     "このサイトの内容物は": "このサイトの内容物は",
-    "クリエイティブ・コモンズ 表示 4.0 ライセンス": "クリエイティブ・コモンズ 表示 4.0 ライセンス",
+    "クリエイティブ・コモンズ 表示 2.1 日本": "クリエイティブ・コモンズ 表示 2.1 日本",
     "の下に提供されています。": "の下に提供されています。"
   },
   "en": {
@@ -308,6 +405,57 @@ export default {
       &:first-of-type {
         margin-right: 10px;
       }
+    }
+  }
+  &-SponsorLinkContainer {
+    overflow: visible;
+    padding-top: 0.8rem;
+    white-space: normal;
+    font-size: 0.82rem;
+    color: $gray-1;
+    & ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    & li + li {
+      margin-top: 0.8rem;
+    }
+    & a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+    }
+    & a:hover {
+      opacity: 0.6;
+    }
+    & img.sakura-internet-logo {
+      margin: -6px 0 0 -14px;
+      width: 176px;
+    }
+    & .image-title {
+      display: inline-block;
+      width: 0;
+      height: 1.5rem;
+      overflow: hidden;
+    }
+    & .no-image-title {
+      display: inline-block;
+      line-height: 1.8rem;
+      color: #444;
+      font-size: 1rem;
+      font-weight: 400;
+      &-l {
+        font-size: 1.3rem;
+      }
+    }
+    & .cc-by-logo {
+      width: auto;
+      height: 1.8rem;
+      vertical-align: text-top;
+    }
+    & a.license {
+      display: inline-block;
+      margin: -0.7rem 0 0.2rem 0;
     }
   }
   &-Copyright {
