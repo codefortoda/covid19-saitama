@@ -2,7 +2,7 @@
 
 ![](https://github.com/codefortoda/covid19-saitama/workflows/production%20deploy/badge.svg)
 
-[![Saitama COVID-19 Task Force website](https://stopcovid19.e-toda.jp/ogp.png)](https://saitama.stopcovid19.jp/)
+[![Saitama COVID-19 Task Force website](https://saitama.stopcovid19.jp/ogp.png)](https://saitama.stopcovid19.jp/)
 
 ### [日本語](./README.md) | English
 

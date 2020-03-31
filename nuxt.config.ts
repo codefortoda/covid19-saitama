@@ -19,7 +19,7 @@ const config: Configuration = {
         hid: 'description',
         name: 'description',
         content:
-          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、埼玉県が開設したものです。'
+          '当サイトは新型コロナウイルス感染症（COVID-19）に関する最新情報を提供するために、Code for TODAが開設したものです。'
       },
       {
         hid: 'og:site_name',
@@ -30,7 +30,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://stopcovid19.e-toda.jp'
+        content: 'https://saitama.stopcovid19.jp'
       },
       {
         hid: 'og:title',
@@ -46,7 +46,7 @@ const config: Configuration = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://stopcovid19.e-toda.jp/ogp.png'
+        content: 'https://saitama.stopcovid19.jp/ogp.png'
       },
       {
         hid: 'twitter:card',
@@ -66,7 +66,7 @@ const config: Configuration = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://stopcovid19.e-toda.jp/ogp.png'
+        content: 'https://saitama.stopcovid19.jp/ogp.png'
       }
     ],
     link: [

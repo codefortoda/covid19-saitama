@@ -35,9 +35,8 @@
 何かしらの貢献を行った方は、ぜひこちらにもお名前をお載せください。
 
 ## 開発に関する情報
-* 開発サイト https://dev-covid19-saitama.netlify.com/
-* ステージングサイト https://stg-covid19-saitama.netlify.com/
-* 本番サイト https://stopcovid19.e-toda.jp/
+* 開発サイト https://dev-stopcovid19.e-toda.jp/
+* 本番サイト https://saitama.stopcovid19.jp/
 * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156)
 
 本 ドキュメント の更新も大歓迎です！
