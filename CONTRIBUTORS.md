@@ -11,6 +11,7 @@ Saitaima Covid-19 response site contributors
 | showyou | [@showyou](https://github.com/showyou) | coding |
 | jakelizzI | [@jakelizzI](https://github.com/jakelizzI) | coding|
 | tomopict | [@tomopict](https://github.com/tomopict) | coding|
+| Kohei-Sato | [@Kohei-Sato] | improve |
 | -add your name here!- | GitHub | -what did you do?- |
 
 ご協力に感謝です！！！
