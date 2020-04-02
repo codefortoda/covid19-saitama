@@ -8,26 +8,26 @@ import datetime
 # data_type: now supports "jokyo" or "kensa"
 def get_opendata_from_url(data_type, pattern_text):
     # Get html data from portal page 
+    url_header = "https://opendata.pref.saitama.lg.jp/data/dataset/"
+    
     http = urllib3.PoolManager()
-    url = "https://opendata.pref.saitama.lg.jp/data/dataset/covid19-" + \
-            data_type
+    url = url_header + "covid19-" + data_type
     r = http.request('GET', url)
     soup = BeautifulSoup(r.data, 'html.parser')
 
     # Get yesterday as format '20200101'
     date = datetime.datetime.strftime(datetime.datetime.now() - \
-            datetime.timedelta(days=1),"%Y%m%d")
-    links = soup.find_all(href=re.compile((\
-            "https://opendata.pref.saitama.lg.jp/data/dataset/.*/%s%s\.csv"\
-            % (data_type, date))))
+            datetime.timedelta(days=3),"%Y%m%d")
+    links = soup.find_all( href=re.compile(("%s.*/%s%s\.csv"\
+            % (url_header, data_type, date))))
 
     # Save csv data
     for i, atag in enumerate(links):
         file_name = "%s%s-%s.csv" % (data_type, date, i)
  
         # get recent update time of the file
-        mat = re.match("https://opendata.pref.saitama.lg.jp/data/dataset/.*/resource/(.*)/download/%s%s\.csv"\
-            % (data_type, date), atag["href"])
+        mat = re.match("%s.*/resource/(.*)/download/%s%s\.csv"\
+            % (url_header, data_type, date), atag["href"])
         id = mat.group(1)
         #print("id ", id)
         recent_update_link = soup.find(href=re.compile(\
