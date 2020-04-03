@@ -60,5 +60,5 @@ if len(sys.argv) == 2:
 else:
     date = ''
 
-get_opendata_from_url("jokyo", date,  "埼玉県内の新型コロナウイルス感染症の発生状況（(.*)）")
+# get_opendata_from_url("jokyo", date,  "埼玉県内の新型コロナウイルス感染症の発生状況（(.*)）")
 get_opendata_from_url("kensa", date, "埼玉県が実施した新型コロナウイルス疑い例検査数（延べ人数）（(.*)）")

@@ -90,8 +90,8 @@ def main(date: str):
     
     jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
     kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
-    jokyo_recent = jokyo_recent.replace('/', '\\')
-    kensa_recent = kensa_recent.replace('/', '\\')
+    jokyo_recent = jokyo_recent.replace('/', '\\/')
+    kensa_recent = kensa_recent.replace('/', '\\/')
     patients = process_patients(date)
     patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
 
