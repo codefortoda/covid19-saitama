@@ -45,7 +45,7 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
     inspections_summary = {}
     patients_summary = []
     df = pd.read_csv("kensa%s-0.csv" % date)
-    print(df.head)
+    # print(df.head)
     
     patients_summary_data = df[["検査日","陽性確認者数"]]
     pat_dat = patients_summary_data.rename(columns={"検査日":"日付", "陽性確認者数":"小計"})
@@ -88,36 +88,38 @@ def main(date: str):
         date = datetime.datetime.strftime(datetime.datetime.now() - \
             datetime.timedelta(days=1),"%Y%m%d")
     
-    jyokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
+    jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
     kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
+    jokyo_recent = jokyo_recent.replace('/', '\\')
+    kensa_recent = kensa_recent.replace('/', '\\')
     patients = process_patients(date)
     patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
 
     result = {
         "contacts": {
-            "date": "2020/03/10 10:00",
+            "date": "2020\/03\/10 10:00",
             "data": []
         },
         "querents": {
-            "date": "2020/03/09 10:10",
+            "date": "2020\/03\/09 10:10",
             "data": []
         },
         "patients": {
-            "date": jyokyo_recent,
+            "date": jokyo_recent,
             "data": patients
         },
         "discharges_summary": {
-            "date": "2020/03/10 19:00",
+            "date": "2020\/03\/10 19:00",
             "data": []
         },
         "inspections": {
-            "date": "2020/03/10 11:00",
+            "date": "2020\/03\/10 11:00",
             "data": []
         },
         "patients_summary": patients_summary,
         "inspections_summary": inspections_summary,
         "better_patients_summary": {
-            "date": "2020/03/10 19:00",
+            "date": "2020\/03\/10 19:00",
             "data": {}
         },
         "lastUpdate": kensa_recent,
