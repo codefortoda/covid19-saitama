@@ -1,15 +1,17 @@
 <template>
-  <svg-card
-    :title="$t('検査陽性者の状況')"
-    :title-id="'details-of-confirmed-cases'"
-    :date="Data.inspections_summary.date"
-    :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
-  >
-    <confirmed-cases-table
-      :aria-label="$t('検査陽性者の状況')"
-      v-bind="confirmedCases"
-    />
-  </svg-card>
+  <v-col cols="12" md="6" class="DataCard">
+    <svg-card
+      :title="$t('検査陽性者の状況')"
+      :title-id="'details-of-confirmed-cases'"
+      :date="Data.inspections_summary.date"
+      :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
+    >
+      <confirmed-cases-table
+        :aria-label="$t('検査陽性者の状況')"
+        v-bind="confirmedCases"
+      />
+    </svg-card>
+  </v-col>
 </template>
 
 <script>
