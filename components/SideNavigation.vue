@@ -40,7 +40,7 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="http://line.me/ti/p/%40bfo2713i"
+            href="https://line.me/R/ti/p/%40281iwfwu"
             target="_blank"
             rel="noopener"
           >
