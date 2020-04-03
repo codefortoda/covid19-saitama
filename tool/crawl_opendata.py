@@ -1,12 +1,17 @@
 # Save csv data from opendata page to file
+# Usage: 
+#    $ python3 crawl_opendata.py
+#    $ python3 crawl_opendata.py 20200330
+
 import urllib3
 import re
+import sys
 from bs4 import BeautifulSoup
 import datetime
 
 
 # data_type: now supports "jokyo" or "kensa"
-def get_opendata_from_url(data_type, pattern_text):
+def get_opendata_from_url(data_type, date, pattern_text):
     # Get html data from portal page 
     url_header = "https://opendata.pref.saitama.lg.jp/data/dataset/"
     
@@ -15,9 +20,10 @@ def get_opendata_from_url(data_type, pattern_text):
     r = http.request('GET', url)
     soup = BeautifulSoup(r.data, 'html.parser')
 
-    # Get yesterday as format '20200101'
-    date = datetime.datetime.strftime(datetime.datetime.now() - \
-            datetime.timedelta(days=3),"%Y%m%d")
+    if date == '':
+        # Get yesterday as format '20200101'
+        date = datetime.datetime.strftime(datetime.datetime.now() - \
+            datetime.timedelta(days=1),"%Y%m%d")
     links = soup.find_all( href=re.compile(("%s.*/%s%s\.csv"\
             % (url_header, data_type, date))))
 
@@ -49,5 +55,10 @@ def get_opendata_from_url(data_type, pattern_text):
     print(data_type + " done.")
 
 
-get_opendata_from_url("jokyo", "埼玉県内の新型コロナウイルス感染症の発生状況（(.*)）")
-get_opendata_from_url("kensa", "埼玉県が実施した新型コロナウイルス疑い例検査数（延べ人数）（(.*)）")
+if len(sys.argv) == 2:
+    date = sys.argv[1]
+else:
+    date = ''
+
+get_opendata_from_url("jokyo", date,  "埼玉県内の新型コロナウイルス感染症の発生状況（(.*)）")
+get_opendata_from_url("kensa", date, "埼玉県が実施した新型コロナウイルス疑い例検査数（延べ人数）（(.*)）")
