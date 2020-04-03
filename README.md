@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/codefortoda/covid19-saitama) 
+
 # 埼玉県 新型コロナウイルス感染症対策サイト
 
 ![](https://github.com/codefortoda/covid19-saitama/workflows/production%20deploy/badge.svg)
