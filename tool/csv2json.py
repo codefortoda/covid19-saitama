@@ -14,7 +14,7 @@ def open_recent_data(file_name: str) -> str:
 
 
 def process_patients(date: str) -> List:
-    df = pd.read_csv("jokyo%s-0.csv" % date)
+    df = pd.read_csv("list%s.csv" % date)
 
     # 集計用にコピーします(deepcopyの方がいいかな？)
     df_summary = df.iloc[:, 0:6]
