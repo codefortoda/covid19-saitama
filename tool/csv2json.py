@@ -19,8 +19,8 @@ def process_patients(date: str) -> List:
     # 集計用にコピーします(deepcopyの方がいいかな？)
     df_summary = df.iloc[:, 0:6]
     print(df_summary.groupby('判明日').count()\
-            .drop(['性別', '居住地', '現状'], axis=1).rename(columns={'年代':'count'}) )
-    new_df = df.iloc[:, 0:6].rename(columns={'No.':'No', '判明日':'リリース日', '現状':'退院'})
+            .drop(['性別', '居住地', '入院中'], axis=1).rename(columns={'年代':'count'}) )
+    new_df = df.iloc[:, 0:6].rename(columns={'No.':'No', '判明日':'リリース日', '入院中':'退院'})
     new_df['date'] = new_df['リリース日'] #.replace('(.*)/(.*)/(.*)', r'\1-\2-\3', regex=True)
     new_df['退院'].mask(new_df['退院'] == '退院', '〇', inplace=True)
     new_df['退院'].mask(new_df['退院'] != '〇', '', inplace=True)
@@ -36,7 +36,7 @@ def process_patients(date: str) -> List:
                 '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z')
         json_data[jd]['date'] = datetime.datetime.strptime(json_data[jd]['date'],\
                 '%Y/%m/%d').strftime('%Y-%m-%d')
-        patients.append(json_data[jd])
+        patients.insert(0, json_data[jd])
     
     return patients
 
@@ -89,11 +89,13 @@ def main(date: str):
             datetime.timedelta(days=1),"%Y%m%d")
     
     jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
-    kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
+    #kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
     jokyo_recent = jokyo_recent.replace('/', '\\/')
-    kensa_recent = kensa_recent.replace('/', '\\/')
+    #kensa_recent = kensa_recent.replace('/', '\\/')
     patients = process_patients(date)
-    patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
+    #patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
+    patients_summary = []
+    inspections_summary = []
 
     result = {
         "contacts": {
@@ -122,7 +124,7 @@ def main(date: str):
             "date": "2020\/03\/10 19:00",
             "data": {}
         },
-        "lastUpdate": kensa_recent,
+        "lastUpdate": jokyo_recent,
         "main_summary": {
             "attr": "検査実施人数",
             "value": 0,

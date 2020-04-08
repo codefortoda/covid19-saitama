@@ -15,8 +15,8 @@ from tika import parser
 def get_pdf_file(monthday: str) -> bool:
     http = urllib3.PoolManager()
     file_name = "itiran%s.pdf" % monthday
-    url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/youseisyaichirannzeroyonn.pdf"
-    #url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/%s" % file_name
+    #url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/youseisyaichirannzeroyonn.pdf"
+    url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/yousei04082000.pdf"# % file_name
     r = http.request('GET', url)
     with open(file_name, "wb") as f:
         f.write(r.data)
@@ -49,7 +49,8 @@ def main(date: str) -> None:
                 match = re.match("(.*)月(.*)日", data[pos])
                 date_text = '2020/'+ match.group(1) + '/' + match.group(2)
                 print("len", len(data), ",", pos+3)
-                f.write("%s,%s,%s,%s,%s, \n" % (data[0], date_text, data[pos+1], \
+                if len(data) > pos+3:
+                    f.write("%s,%s,%s,%s,%s, \n" % (data[0], date_text, data[pos+1], \
                         data[pos+2], "" if len(data) < pos+4 else data[pos+3]))
         print("Saving list%s.csv" % date )
 
