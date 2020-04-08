@@ -2,9 +2,9 @@
 
 ![](https://github.com/codefortoda/covid19-saitama/workflows/production%20deploy/badge.svg)
 
-[![埼玉県 新型コロナウイルス感染症対策サイト](https://stopcovid19.e-toda.jp/ogp.png)](https://stopcovid19.e-toda.jp/)
+[![埼玉県 新型コロナウイルス感染症対策サイト](https://saitama.stopcovid19.jp/ogp.png)](https://saitama.stopcovid19.jp/)
 
-### 日本語 | [English](./README_EN.md) | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### 日本語 | [English](./README_EN.md)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -27,10 +27,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 ## 元のサイトから派生したもの
 
-### 【北海道版】新型コロナウイルス感染症対策サイト
-[サイトへのリンク](https://stopcovid19.hokkaido.dev/)
-
-[GitHubへのリンク](https://github.com/codeforsapporo/covid19)
+[Link先](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/FORKED_SITES.md)を御覧ください。
 
 ## 開発者向け情報
 
@@ -67,8 +64,8 @@ $ docker-compose run --rm app yarn install
 
 ### ステージング・本番環境への反映
 
-`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://stopcovid19.e-toda.jp/ が更新されます。
+`master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://saitama.stopcovid19.jp/ が更新されます。
 
-`staging` ブランチがアップデートされると、自動的に `gh-pages` ブランチにHTML類がbuildされます。そして、ステージングサイト https://stg-covid19-saitama.netlify.com/ が更新されます。
+`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-stopcovid19.e-toda.jp/ が更新されます。
 
-`development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-covid19-saitama.netlify.com/ が更新されます。
+

@@ -1,10 +1,10 @@
-# Tokyo COVID-19 Task Force website
+# Saitama COVID-19 Task Force website
 
-![](https://github.com/tokyo-metropolitan-gov/covid19/workflows/production%20deploy/badge.svg)
+![](https://github.com/codefortoda/covid19-saitama/workflows/production%20deploy/badge.svg)
 
-[![Tokyo COVID-19 Task Force website](https://stopcovid19.e-toda.jp/ogp.png)](https://stopcovid19.metro.tokyo.lg.jp/)
+[![Saitama COVID-19 Task Force website](https://saitama.stopcovid19.jp/ogp.png)](https://saitama.stopcovid19.jp/)
 
-### [日本語](./README.md) | English | [Spanish](./README_ES.md) | [Korean](./README_KO.md) | [Chinese (Taiwan)](./README_ZH_TW.md) | [Chinese (Simplified)](./README_ZH_CN.md) | [Vietnamese](./README_VI.md)
+### [日本語](./README.md) | English
 
 ## How to Contribute
 
