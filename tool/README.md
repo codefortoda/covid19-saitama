@@ -1,14 +1,15 @@
 # Need
 
-- php 7.x
-- composer
+- Python3
+- pip
 
 # Usage
 
-- download source xlsx files to `downloads` dir
-- composer install
-- php convert.php
-- will be update data.json to {project_dir}/data/data.json
+```sh
+$ pip install -r requirements.txt --target .
+$ python3 crawl_shingatacoronavirus.py
+$ cat patients_20200409.csv (change 20200409 to target day)  
+```
 
 # tool
 
@@ -19,9 +20,6 @@
 以下の手順でスクリプトを実行します。
 
 ```sh
-$ pip install beautifulsoup4 --target .
-$ pip install requests --target .
-$ 
 $ # 引数なしの場合は「patients_20200408.csv」のような現在の日時を含んだCSVファイルを生成します。
 $ python crawl_shingatacoronavirus.py
 $
