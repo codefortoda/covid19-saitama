@@ -34,8 +34,24 @@ def process_patients(date: str) -> List:
 
     # 集計用にコピーします(deepcopyの方がいいかな？)
     df_summary = df.iloc[:, 0:6]
-    print(df_summary.groupby('判明日').count()\
-            .drop(['性別', '居住地', '入院中'], axis=1).rename(columns={'年代':'count'}) )
+    df_summary = df_summary.groupby('判明日').count()\
+            .drop(['性別', '居住地', '入院中', '年代'], axis=1).rename(columns={'No.':'count'}) 
+    print(df_summary)
+    json_summary_data = json.loads(df_summary.to_json(force_ascii=False))
+    #print(json_summary_data)
+    patients_summary_data = []
+    for jd in json_summary_data["count"]:
+        date = datetime.datetime.strptime(jd, '%Y/%m/%d').\
+                strftime('%Y-%m-%dT08:00:00.000Z')
+        cnt = json_summary_data["count"][jd]
+        patients_summary_data.append(
+                {
+                    "日付": date,
+                    "小計": cnt
+                }
+        )
+    print(patients_summary_data)
+
     new_df = df.iloc[:, 0:6].rename(columns={'No.':'No', '判明日':'リリース日', '入院中':'退院'})
     new_df['date'] = new_df['リリース日'] #.replace('(.*)/(.*)/(.*)', r'\1-\2-\3', regex=True)
     new_df['退院'].mask(new_df['退院'] == '退院', '〇', inplace=True)
@@ -55,7 +71,7 @@ def process_patients(date: str) -> List:
                 '%Y/%m/%d').strftime('%Y-%m-%d')
         patients.insert(0, json_data[jd])
     
-    return patients
+    return patients, patients_summary_data
 
 
 def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
@@ -109,16 +125,11 @@ def main(date: str):
     #kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
     jokyo_recent = jokyo_recent.replace('/', '\\/')
     #kensa_recent = kensa_recent.replace('/', '\\/')
-    patients = process_patients(date)
+    patients, patients_summary_data = process_patients(date)
     #patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
     patients_summary = {
-        "date": "2020\/03\/29 17:30",
-        "data": [
-            {
-                "日付": "2020-02-01T08:00:00.000Z",
-                "小計": 1
-            }
-        ]
+        "date": jokyo_recent,
+        "data": patients_summary_data
     }
     inspections_summary = {
          "date": "2020\/04\/08 00:00",
