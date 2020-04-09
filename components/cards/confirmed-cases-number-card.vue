@@ -26,7 +26,9 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
 
-    const optionCount = Data.patients.data.filter(function(x){return x.date==='調査中'}).length;
+    const optionCount = Data.patients.data.filter(function(x) {
+      return x.date === '調査中'
+    }).length
 
     const data = {
       Data,

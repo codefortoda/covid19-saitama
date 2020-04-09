@@ -137,9 +137,10 @@ export default {
         }
       }
       return {
-        lText: (this.chartData[
-          this.chartData.length - 1
-        ].cumulative + this.optionCount).toLocaleString(),
+        lText: (
+          this.chartData[this.chartData.length - 1].cumulative +
+          this.optionCount
+        ).toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           '累計値'
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
