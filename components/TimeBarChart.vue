@@ -103,6 +103,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    optionCount: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   data() {
@@ -127,14 +132,14 @@ export default {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
-          } ${this.unit}）`,
+          }${this.unit}）`,
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[
+        lText: (this.chartData[
           this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        ].cumulative + this.optionCount).toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           '累計値'
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${

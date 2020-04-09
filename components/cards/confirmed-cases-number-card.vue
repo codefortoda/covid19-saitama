@@ -8,6 +8,7 @@
       :date="Data.patients.date"
       :unit="$t('人')"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'"
+      :option-count="optionCount"
     />
   </v-col>
 </template>
@@ -25,9 +26,12 @@ export default {
     // 感染者数グラフ
     const patientsGraph = formatGraph(Data.patients_summary.data)
 
+    const optionCount = Data.patients.data.filter(function(x){return x.date==='調査中'}).length;
+
     const data = {
       Data,
-      patientsGraph
+      patientsGraph,
+      optionCount
     }
     return data
   }
