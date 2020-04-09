@@ -8,9 +8,25 @@ from typing import List, Dict
 
 
 def open_recent_data(file_name: str) -> str:
-    with open(file_name) as f:
-        recent_update = f.read()
+    recent_update = 'Error!' # データが読み出せない場合はエラー
+    with open(file_name, 'r') as f:
+        recent_update = f.read().rstrip()
     return recent_update
+
+
+# 症例別患者数を取得します
+def process_patients_total(date: str) -> Dict:
+    patients_str = open_recent_data("patients_{}.csv".format(date)).split(",")
+    patients = list(map(int, patients_str))
+    patients_total = {
+        "患者": patients[0],
+        "入院": patients[1],
+        "軽中症": patients[2],
+        "重症": patients[3],
+        "退院": patients[4],
+        "死亡": patients[5]
+    }
+    return patients_total
 
 
 def process_patients(date: str) -> List:
@@ -24,6 +40,7 @@ def process_patients(date: str) -> List:
     new_df['date'] = new_df['リリース日'] #.replace('(.*)/(.*)/(.*)', r'\1-\2-\3', regex=True)
     new_df['退院'].mask(new_df['退院'] == '退院', '〇', inplace=True)
     new_df['退院'].mask(new_df['退院'] != '〇', '', inplace=True)
+    new_df.fillna('', inplace=True)
     print("new_df", new_df)
     json_data = json.loads(new_df.T.to_json(force_ascii=False))
 
@@ -86,7 +103,7 @@ def main(date: str):
 
     if date == '':
         date = datetime.datetime.strftime(datetime.datetime.now() - \
-            datetime.timedelta(days=1),"%Y%m%d")
+            datetime.timedelta(days=0),"%Y%m%d")
     
     jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
     #kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
@@ -94,8 +111,24 @@ def main(date: str):
     #kensa_recent = kensa_recent.replace('/', '\\/')
     patients = process_patients(date)
     #patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
-    patients_summary = []
-    inspections_summary = []
+    patients_summary = {
+        "date": "2020\/03\/29 17:30",
+        "data": [
+            {
+                "日付": "2020-02-01T08:00:00.000Z",
+                "小計": 1
+            }
+        ]
+    }
+    inspections_summary = {
+         "date": "2020\/04\/08 00:00",
+         "data": {
+                "県内": [],
+                "その他": []
+            },
+         "labels": []
+    }
+    patients_total = process_patients_total(date)
 
     result = {
         "contacts": {
@@ -110,15 +143,12 @@ def main(date: str):
             "date": jokyo_recent,
             "data": patients
         },
+        "patients_summary": patients_summary,
         "discharges_summary": {
             "date": "2020\/03\/10 19:00",
             "data": []
         },
-        "inspections": {
-            "date": "2020\/03\/10 11:00",
-            "data": []
-        },
-        "patients_summary": patients_summary,
+        "inspections": {},
         "inspections_summary": inspections_summary,
         "better_patients_summary": {
             "date": "2020\/03\/10 19:00",
@@ -127,33 +157,33 @@ def main(date: str):
         "lastUpdate": jokyo_recent,
         "main_summary": {
             "attr": "検査実施人数",
-            "value": 0,
+            "value": 1000,
             "children": [
                 {
                     "attr": "陽性患者数",
-                    "value": 0,
+                    "value": patients_total["患者"],
                     "children": [
                         {
                             "attr": "入院中",
-                            "value": 0,
+                            "value": patients_total["入院"],
                             "children": [
                                 {
                                     "attr": "軽症・中等症",
-                                    "value": 0
+                                    "value": patients_total["軽中症"]
                                 },
                                 {
                                     "attr": "重症",
-                                    "value": 0
+                                    "value": patients_total["重症"]
                                 }
                             ]
                         },
                         {
                             "attr": "退院",
-                            "value": 0
+                            "value": patients_total["退院"]
                         },
                         {
                             "attr": "死亡",
-                            "value": 0
+                            "value": patients_total["死亡"]
                         }
                     ]
                 }
@@ -165,8 +195,8 @@ def main(date: str):
     #print(inspections_summary)
 
     # create backup
-    shutil.copy('../data/data.json', 'data.json.bak')
-    with open('../data/data.json', 'w') as f:
+    shutil.copy('./data.json', 'data.json.bak')
+    with open('./data.json', 'w') as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
     print("Done.")

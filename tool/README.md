@@ -2,6 +2,7 @@
 
 - Python3
 - pip
+- Java8(required by tika PDF reader)
 
 # Usage
 
