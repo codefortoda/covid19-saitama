@@ -35,12 +35,15 @@ def process_patients(date: str) -> List:
     # 集計用にコピーします(deepcopyの方がいいかな？)
     df_summary = df.iloc[:, 0:6]
     df_summary = df_summary.groupby('判明日').count()\
-            .drop(['性別', '居住地', '入院中', '年代'], axis=1).rename(columns={'No.':'count'}) 
+            .drop(['性別', '居住地', '入院中', '年代'], axis=1).rename(columns={'No.':'count'})
     print(df_summary)
     json_summary_data = json.loads(df_summary.to_json(force_ascii=False))
     #print(json_summary_data)
     patients_summary_data = []
     for jd in json_summary_data["count"]:
+        if jd == "調査中":
+            continue
+
         date = datetime.datetime.strptime(jd, '%Y/%m/%d').\
                 strftime('%Y-%m-%dT08:00:00.000Z')
         cnt = json_summary_data["count"][jd]
@@ -65,12 +68,16 @@ def process_patients(date: str) -> List:
     patients = []
     for jd in json_data:
         # この辺りdataframeで一括で変えられるなら変えたい
-        json_data[jd]['リリース日'] = datetime.datetime.strptime(json_data[jd]['リリース日'],\
-                '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z')
-        json_data[jd]['date'] = datetime.datetime.strptime(json_data[jd]['date'],\
-                '%Y/%m/%d').strftime('%Y-%m-%d')
+        if json_data[jd]['リリース日'] == "調査中":
+            json_data[jd]['date'] = json_data[jd]['リリース日']
+        else:
+            json_data[jd]['リリース日'] = datetime.datetime.strptime(json_data[jd]['リリース日'],\
+                    '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z')
+            json_data[jd]['date'] = datetime.datetime.strptime(json_data[jd]['date'],\
+                    '%Y/%m/%d').strftime('%Y-%m-%d')
+
         patients.insert(0, json_data[jd])
-    
+
     return patients, patients_summary_data
 
 
@@ -79,7 +86,7 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
     patients_summary = []
     df = pd.read_csv("kensa%s-0.csv" % date)
     # print(df.head)
-    
+
     patients_summary_data = df[["検査日","陽性確認者数"]]
     pat_dat = patients_summary_data.rename(columns={"検査日":"日付", "陽性確認者数":"小計"})
     pat_json = json.loads(pat_dat.to_json(force_ascii=False))
@@ -88,6 +95,7 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
     ins_dat = inspection_summary_data.rename(columns={"検査日":"labels", "検査数（延べ人数）":"県内"})
     ins_json = json.loads(ins_dat.to_json(force_ascii=False))
     
+
     inspection_date = []
     patient_counts = []
     for ij in ins_json["県内"]:
@@ -100,7 +108,7 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
         inspection_date.append(ild)
     for ij in ins_json["県内"]:
         inspection_counts.append(ins_json["県内"][ij])
-    
+
     inspections_summary = {
         "date": kensa_recent,
         "data": {
@@ -120,7 +128,7 @@ def main(date: str):
     if date == '':
         date = datetime.datetime.strftime(datetime.datetime.now() - \
             datetime.timedelta(days=0),"%Y%m%d")
-    
+
     jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
     #kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
     jokyo_recent = jokyo_recent.replace('/', '\\/')

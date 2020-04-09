@@ -1,6 +1,6 @@
 # usage
 # Java8以降が必要
-# $ python get_from_jokyo_pdf.py http://www.pref.saitama.lg.jp/a0701/covid19/documents/yousei04082000.pdf 
+# $ python get_from_jokyo_pdf.py http://www.pref.saitama.lg.jp/a0701/covid19/documents/yousei04082000.pdf
 # 前日のデータを取得
 # $ python get_from_jokyo_pdf.py http://www.pref.saitama.lg.jp/a0701/covid19/documents/yousei04071600.pdf 20200407
 # 2020年3月31日のデータを取得
@@ -48,8 +48,12 @@ def main(date: str, url: str) -> None:
                 if data[pos-1].isdecimal() and not(data[pos][0].isdecimal()):
                     pos += 1
 
-                match = re.match("(.*)月(.*)日", data[pos])
-                date_text = '2020/'+ match.group(1) + '/' + match.group(2)
+                if data[pos] == "調査中":
+                    date_text = "調査中"
+                else:
+                    match = re.match("(.*)月(.*)日", data[pos])
+                    date_text = '2020/'+ match.group(1) + '/' + match.group(2)
+
                 print("len", len(data), ",", pos+2)
                 if re.match("(.*)[市町村]", data[pos+1]):
                     city = data[pos+1]
