@@ -11,7 +11,7 @@ $ pip install -r requirements.txt --target .
 $ python3 crawl_shingatacoronavirus.py
 $ cat patients_20200409.csv (change 20200409 to target day)  
 $ python3 get_from_jokyo_pdf.py
-$ cat list_20200409.csv
+$ cat list20200409.csv
 $ python3 csv2json.py
 $ sed -i '' s'/\\\\/\\/g' data.json
 $ vim data.json
