@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 beautifulsoup4 = "*"
 urllib3 = "*"
+pandas = "*"
+tika = "*"
 
 [requires]
 python_version = "3.8"
