@@ -49,10 +49,14 @@ export default {
     //   }
     // }
 
+    const cnt = Data.patients.data.filter(function(x) {
+      return x.date === '調査中'
+    }).length
+
     const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
+      lText: (
+        patientsGraph[patientsGraph.length - 1].cumulative + cnt
+      ).toLocaleString(),
       sText: this.$t('{date}の累計', {
         date: patientsGraph[patientsGraph.length - 1].label
       }),

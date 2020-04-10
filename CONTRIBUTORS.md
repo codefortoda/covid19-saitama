@@ -1,4 +1,4 @@
-Saitaima Covid-19 response site contributors
+Saitama Covid-19 response site contributors
 ============================================
 
 派生元サイトにご協力いただいた皆様は[こちら](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/CONTRIBUTORS.md)
