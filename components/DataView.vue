@@ -9,11 +9,14 @@
           <h3 :id="titleId" class="DataView-Title">
             {{ title }}
           </h3>
-          <div>
-            <slot name="button" />
-          </div>
         </div>
         <slot name="infoPanel" />
+      </div>
+      <div class="DataView-Description">
+        <slot name="description" />
+      </div>
+      <div>
+        <slot name="button" />
       </div>
       <div
         :class="
@@ -143,6 +146,15 @@ export default class DataView extends Vue {
   }
   &-CardText {
     margin: 30px 0;
+  }
+  &-Description {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: $gray-3;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
   }
   &-CardTextForXS {
     margin-bottom: 46px;
