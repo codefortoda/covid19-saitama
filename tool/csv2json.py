@@ -53,6 +53,7 @@ def process_patients(date: str) -> List:
                     "小計": cnt
                 }
         )
+        patients_summary_data.sort(key=lambda x: x['日付'])
     print(patients_summary_data)
 
     new_df = df.iloc[:, 0:6].rename(columns={'No.':'No', '判明日':'リリース日', '入院中':'退院'})
@@ -94,7 +95,7 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
     inspection_summary_data = df[["検査日","検査数（延べ人数）"]]
     ins_dat = inspection_summary_data.rename(columns={"検査日":"labels", "検査数（延べ人数）":"県内"})
     ins_json = json.loads(ins_dat.to_json(force_ascii=False))
-    
+
 
     inspection_date = []
     patient_counts = []
