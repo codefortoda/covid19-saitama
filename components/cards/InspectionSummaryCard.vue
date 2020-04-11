@@ -8,6 +8,11 @@
       :date="Data.inspections_summary.date"
       :unit="$t('件')"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-kensa'"
+      :url-label="
+        $t(
+          '出典：【埼玉県】埼玉県が実施した新型コロナウイルス疑い例検査数（延べ人数）'
+        )
+      "
     >
       <template v-slot:description>
         <ul>
