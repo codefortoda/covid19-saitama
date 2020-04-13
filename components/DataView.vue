@@ -29,18 +29,7 @@
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
-        <a
-          v-if="url"
-          class="OpenDataLink"
-          :href="url"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ $t('オープンデータへのリンク') }}
-          <v-icon class="ExternalLinkIcon" size="15">
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        <slot name="footer" />
       </v-footer>
     </div>
   </v-card>
@@ -49,28 +38,22 @@
 <i18n>
 {
   "ja": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "出典：【埼玉県】新型コロナウイルス感染症の発生状況"
+    "{date} 更新": "{date} 更新"
   },
   "en": {
-    "{date} 更新": "Last update: {date}",
-    "オープンデータへのリンク": "Link to Open Data"
+    "{date} 更新": "Last update: {date}"
   },
   "zh-cn": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "公开数据的链接"
+    "{date} 更新": "{date} 更新"
   },
   "zh-tw": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "開放資料連結"
+    "{date} 更新": "{date} 更新"
   },
   "ko": {
-    "{date} 更新": "{date} 갱신",
-    "オープンデータへのリンク": "공공데이터에의 링크"
+    "{date} 更新": "{date} 갱신"
   },
   "ja-basic": {
-    "{date} 更新": "{date} に あたらしく しました",
-    "オープンデータへのリンク": "オープンデータ という ページを みたいとき"
+    "{date} 更新": "{date} に あたらしく しました"
   }
 }
 </i18n>
@@ -84,7 +67,6 @@ export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private titleId!: string
   @Prop() private date!: string
-  @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
@@ -168,12 +150,6 @@ export default class DataView extends Vue {
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
-    .OpenDataLink {
-      text-decoration: none;
-      .ExternalLinkIcon {
-        vertical-align: text-bottom;
-      }
-    }
   }
 }
 </style>

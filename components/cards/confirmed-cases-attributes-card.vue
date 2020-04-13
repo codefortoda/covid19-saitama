@@ -8,6 +8,7 @@
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'"
+      :url-label="$t('オープンデータへのリンク')"
     />
   </v-col>
 </template>
