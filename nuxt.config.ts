@@ -115,19 +115,38 @@ const config: Configuration = {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
-        locales: [
-          {
-            code: 'ja',
-            iso: 'ja-JP'
-          }
-        ],
+        strategy: 'prefix_except_default',
         defaultLocale: 'ja',
         vueI18n: {
           fallbackLocale: 'ja',
           formatFallbackMessages: true
         },
-        vueI18nLoader: true
+        lazy: true,
+        langDir: 'assets/locales/',
+        vueI18nLoader: true,
+        locales: [
+          {
+            code: 'ja',
+            name: '日本語',
+            iso: 'ja-JP',
+            file: 'ja.json',
+            description: 'Japanese'
+          },
+          {
+            code: 'en',
+            name: 'English',
+            iso: 'en-US',
+            file: 'en.json',
+            description: 'English'
+          },
+          {
+            code: 'ja-basic',
+            name: 'やさしい にほんご',
+            iso: 'ja-JP',
+            file: 'ja-Hira.json',
+            description: 'Easy Japanese'
+          }
+        ]
       }
     ],
     'nuxt-svg-loader',
