@@ -18,6 +18,13 @@
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
+    <div class="SideNavigation-Language">
+      <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+        {{ $t('多言語対応選択メニュー') }}
+        <LanguageSelector />
+      </label>
+    </div>
+    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -140,10 +147,12 @@
 
 <script>
 import ListItem from '@/components/ListItem'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 
 export default {
   components: {
-    ListItem
+    ListItem,
+    LanguageSelector
   },
   props: {
     isNaviOpen: {
@@ -222,6 +231,17 @@ export default {
     @include lessThan($small) {
       padding: 7px 0 7px 20px;
     }
+  }
+  &-Language {
+    @include lessThan($small) {
+      display: block;
+      padding: 2px 20px;
+    }
+  }
+  &-LanguageLabel {
+    display: block;
+    padding: 2px 20px;
+    font-size: 0.85rem;
   }
   &-HeadingIcon {
     margin-right: 16px;
