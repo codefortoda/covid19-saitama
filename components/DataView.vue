@@ -43,35 +43,6 @@
   </v-card>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "出典：【埼玉県】新型コロナウイルス感染症の発生状況"
-  },
-  "en": {
-    "{date} 更新": "Last update: {date}",
-    "オープンデータへのリンク": "Link to Open Data"
-  },
-  "zh-cn": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "公开数据的链接"
-  },
-  "zh-tw": {
-    "{date} 更新": "{date} 更新",
-    "オープンデータへのリンク": "開放資料連結"
-  },
-  "ko": {
-    "{date} 更新": "{date} 갱신",
-    "オープンデータへのリンク": "공공데이터에의 링크"
-  },
-  "ja-basic": {
-    "{date} 更新": "{date} に あたらしく しました",
-    "オープンデータへのリンク": "オープンデータ という ページを みたいとき"
-  }
-}
-</i18n>
-
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'

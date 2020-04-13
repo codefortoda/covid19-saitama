@@ -13,32 +13,6 @@
   </div>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "print": "印刷する"
-  },
-  "en": {
-    "print": "Print Me"
-  },
-  "zh-cn": {
-    "print": "打印本页"
-  },
-  "zh-tw": {
-    "print": "列印此頁"
-  },
-  "ko": {
-    "print": "본 페이지를 인쇄"
-  },
-  "pt-BR": {
-    "print": ""
-  },
-  "ja-basic": {
-    "print": "いんさつする"
-  }
-}
-</i18n>
-
 <script>
 import PrinterIcon from '@/static/printer.svg'
 
