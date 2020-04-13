@@ -93,29 +93,29 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
     pat_json = json.loads(pat_dat.to_json(force_ascii=False))
 
     inspection_summary_data = df[["検査日","検査数（延べ人数）"]]
-    ins_dat = inspection_summary_data.rename(columns={"検査日":"labels", "検査数（延べ人数）":"県内"})
+    ins_dat = inspection_summary_data.rename(columns={"検査日":"labels", "検査数（延べ人数）":"県が実施"})
     ins_json = json.loads(ins_dat.to_json(force_ascii=False))
 
 
-    inspection_date = []
     patient_counts = []
-    for ij in ins_json["県内"]:
+    for ij in ins_json["県が実施"]:
         patient_counts.append({ "日付":
             datetime.datetime.strptime(pat_json["日付"][ij], '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z'), "小計":pat_json["小計"][ij] })
 
+    # 一旦不要なのでコメントアウト
+    #inspection_date = []
+    #for ij in ins_json["labels"]:
+    #    ild = datetime.datetime.strptime(ins_json["labels"][ij],'%Y/%m/%d').strftime('%m\/%d')
+    #    inspection_date.append(ild)
+
     inspection_counts = []
-    for ij in ins_json["labels"]:
-        ild = datetime.datetime.strptime(ins_json["labels"][ij],'%Y/%m/%d').strftime('%m\/%d')
-        inspection_date.append(ild)
-    for ij in ins_json["県内"]:
-        inspection_counts.append(ins_json["県内"][ij])
+    for ij in ins_json["県が実施"]:
+        inspection_counts.append({ "日付":
+            datetime.datetime.strptime(ins_json["labels"][ij], '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z'), "小計":ins_json["県が実施"][ij] })
 
     inspections_summary = {
         "date": kensa_recent,
-        "data": {
-            "県内": inspection_counts
-        },
-        "labels": inspection_date
+        "data": inspection_counts.sort(key = lambda k: k["日付"]) # 更新時の差分が大きくならないようにソートさせます
     }
     patients_summary = {
         "date": kensa_recent,
@@ -135,18 +135,10 @@ def main(date: str):
     jokyo_recent = jokyo_recent.replace('/', '\\/')
     #kensa_recent = kensa_recent.replace('/', '\\/')
     patients, patients_summary_data = process_patients(date)
-    #patients_summary, inspections_summary = process_inspections_summary(date, kensa_recent)
+    _patients_summary, inspections_summary = process_inspections_summary(date, jokyo_recent)
     patients_summary = {
         "date": jokyo_recent,
         "data": patients_summary_data
-    }
-    inspections_summary = {
-         "date": "2020\/04\/08 00:00",
-         "data": {
-                "県内": [],
-                "その他": []
-            },
-         "labels": []
     }
     patients_total = process_patients_total(date)
 
