@@ -3,7 +3,7 @@
     <svg-card
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.inspections_summary.date"
+      :date="Data.patients.date"
       :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
       :url-label="$t('出典：新型コロナウイルス感染症の県内の発生状況')"
     >
