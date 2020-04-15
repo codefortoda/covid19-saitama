@@ -10,6 +10,7 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <inspection-summary-card />
     </v-row>
   </div>
 </template>
@@ -259,6 +260,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/confirmed-cases-number-card.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/confirmed-cases-attributes-card.vue'
+import InspectionSummaryCard from '@/components/cards/InspectionSummaryCard.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
@@ -269,7 +271,8 @@ export default {
     WhatsNew,
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
-    ConfirmedCasesAttributesCard
+    ConfirmedCasesAttributesCard,
+    InspectionSummaryCard
   },
   data() {
     // 検査陽性者の状況
