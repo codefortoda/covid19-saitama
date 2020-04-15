@@ -1,11 +1,5 @@
 <template>
-  <data-view
-    class="SvgCard"
-    :title="title"
-    :title-id="titleId"
-    :date="date"
-    :url="url"
-  >
+  <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
         {{
@@ -15,6 +9,9 @@
         }}<br />
         {{ $t('（県内市公表分やチャーター便帰国者を含む）') }}
       </p>
+    </template>
+    <template v-slot:footer>
+      <open-data-link v-show="url" :url="url" :label="urlLabel" />
     </template>
     <slot />
   </data-view>
@@ -36,9 +33,10 @@
 
 <script>
 import DataView from '@/components/DataView.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
-  components: { DataView },
+  components: { DataView, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -53,6 +51,10 @@ export default {
       default: ''
     },
     url: {
+      type: String,
+      default: ''
+    },
+    urlLabel: {
       type: String,
       default: ''
     }
