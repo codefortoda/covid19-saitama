@@ -1,5 +1,8 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:description>
+      <slot name="description" />
+    </template>
     <template v-slot:button>
       <data-selector v-model="dataKind" />
     </template>
@@ -16,6 +19,9 @@
         :unit="displayInfo.unit"
       />
     </template>
+    <template v-slot:footer>
+      <open-data-link v-show="url" :url="url" :label="urlLabel" />
+    </template>
   </data-view>
 </template>
 
@@ -25,9 +31,10 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
       type: String,
@@ -63,6 +70,16 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    urlLabel: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    optionCount: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   data() {
@@ -87,14 +104,15 @@ export default {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
-          } ${this.unit}）`,
+          }${this.unit}）`,
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        lText: (
+          this.chartData[this.chartData.length - 1].cumulative +
+          this.optionCount
+        ).toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           '累計値'
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${

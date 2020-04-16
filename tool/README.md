@@ -1,14 +1,26 @@
 # Need
 
-- php 7.x
-- composer
+- Python3
+- pip
+- Java8(required by tika PDF reader)
 
 # Usage
 
-- download source xlsx files to `downloads` dir
-- composer install
-- php convert.php
-- will be update data.json to {project_dir}/data/data.json
+```sh
+$ pip install -r requirements.txt --target .
+$ python3 crawl_shingatacoronavirus.py
+$ cat patients_20200409.csv (change 20200409 to target day)  
+$ python3 get_from_jokyo_pdf.py
+$ cat list20200409.csv
+$ python3 csv2json.py
+$ sed -i '' s'/\\\\/\\/g' data.json
+$ vim data.json
+Change 検査実施人数's value
+"main_summary": {
+        "attr": "検査実施人数",
+        "value": 1000 <- 
+$ cp data.json ../data/data.json
+```
 
 # tool
 
@@ -19,9 +31,6 @@
 以下の手順でスクリプトを実行します。
 
 ```sh
-$ pip install beautifulsoup4 --target .
-$ pip install requests --target .
-$ 
 $ # 引数なしの場合は「patients_20200408.csv」のような現在の日時を含んだCSVファイルを生成します。
 $ python crawl_shingatacoronavirus.py
 $

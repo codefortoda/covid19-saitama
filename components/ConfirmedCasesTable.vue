@@ -4,7 +4,7 @@
       <div class="gutter">
         <div class="box tall">
           <!-- eslint-disable vue/no-v-html-->
-          <span v-html="$t('検査実施<br />人数')" />
+          <span v-html="$t('検査実施人数')" />
           <!-- eslint-enable vue/no-v-html-->
           <span>
             <b>{{ 検査実施人数 }}</b>

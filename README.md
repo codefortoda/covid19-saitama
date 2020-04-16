@@ -53,7 +53,7 @@ $ docker-compose up --build
 ### `Cannot find module ****` と怒られた時
 
 **yarn を使う場合**
-```
+```bash
 $ yarn install
 ```
 
@@ -67,5 +67,3 @@ $ docker-compose run --rm app yarn install
 `master` ブランチがアップデートされると、自動的に `production` ブランチにHTML類がbuildされます。そして、本番サイト https://saitama.stopcovid19.jp/ が更新されます。
 
 `development` ブランチがアップデートされると、自動的に `dev-pages` ブランチにHTML類がbuildされます。そして、開発用サイト https://dev-stopcovid19.e-toda.jp/ が更新されます。
-
-

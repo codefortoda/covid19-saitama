@@ -9,11 +9,14 @@
           <h3 :id="titleId" class="DataView-Title">
             {{ title }}
           </h3>
-          <div>
-            <slot name="button" />
-          </div>
         </div>
         <slot name="infoPanel" />
+      </div>
+      <div class="DataView-Description">
+        <slot name="description" />
+      </div>
+      <div>
+        <slot name="button" />
       </div>
       <div
         :class="
@@ -26,18 +29,7 @@
       </div>
       <v-footer class="DataView-Footer">
         <time :datetime="date">{{ $t('{date} 更新', { date }) }}</time>
-        <a
-          v-if="url"
-          class="OpenDataLink"
-          :href="url"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ $t('オープンデータへのリンク') }}
-          <v-icon class="ExternalLinkIcon" size="15">
-            mdi-open-in-new
-          </v-icon>
-        </a>
+        <slot name="footer" />
       </v-footer>
     </div>
   </v-card>
@@ -52,7 +44,6 @@ export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private titleId!: string
   @Prop() private date!: string
-  @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
 
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
@@ -115,6 +106,15 @@ export default class DataView extends Vue {
   &-CardText {
     margin: 30px 0;
   }
+  &-Description {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: $gray-3;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 70px;
@@ -127,12 +127,6 @@ export default class DataView extends Vue {
     color: $gray-3 !important;
     text-align: right;
     background-color: $white !important;
-    .OpenDataLink {
-      text-decoration: none;
-      .ExternalLinkIcon {
-        vertical-align: text-bottom;
-      }
-    }
   }
 }
 </style>
