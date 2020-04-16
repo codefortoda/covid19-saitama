@@ -93,7 +93,10 @@
                 target="_blank"
                 rel="noopener"
               >
-                <span class="no-image-title">データについて</span><br />
+                <span class="no-image-title">
+                  {{ $t('データについて') }}
+                </span>
+                <br />
               </a>
             </li>
             <li>
