@@ -8,6 +8,7 @@
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'"
+      :url-label="$t('オープンデータへのリンク')"
     />
   </v-col>
 </template>
@@ -35,7 +36,9 @@ export default {
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
+      row['日付'] = this.$t(row['日付'])
       row['居住地'] = this.$t(row['居住地'])
+      row['年代'] = this.$t(row['年代'])
       row['性別'] = this.$t(row['性別'])
 
       if (row['年代'] === '10歳未満') {
@@ -46,10 +49,14 @@ export default {
       }
     }
 
+    const cnt = Data.patients.data.filter(function(x) {
+      return x.date === '調査中'
+    }).length
+
     const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
+      lText: (
+        patientsGraph[patientsGraph.length - 1].cumulative + cnt
+      ).toLocaleString(),
       sText: this.$t('{date}の累計', {
         date: patientsGraph[patientsGraph.length - 1].label
       }),
