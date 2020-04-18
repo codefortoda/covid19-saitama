@@ -14,7 +14,7 @@
 * good first issue / help wanted / bug を優先して対応いただけると助かります
 
 ## コミュニケーションへの参加方法
-* Code for Japan の Slack アカウントを持っていない場合、[こちらから登録](https://codefortoda-slackin.herokuapp.com/)してください
+* Code for TODA の Slack アカウントを持っていない場合、[こちらから登録](https://codefortoda-slackin.herokuapp.com/)してください
 * `#stopcovid19jp` チャンネルにご参加ください。
 
 ## 参加にあたって

@@ -14,7 +14,7 @@ This page shows how you can contribute to the development of this site.
 * We appreciate if you give priority to the issues labelled [good first issue / help wanted / bug]
 
 ## How to participate in communications
-* If you do not have a "Code for Japan" Slack account, please register [here](https://codefortoda-slackin.herokuapp.com/)
+* If you do not have a "Code for TODA" Slack account, please register [here](https://codefortoda-slackin.herokuapp.com/)
 * Join `#stopcovid19jp` Channel
 
 ## For participation
