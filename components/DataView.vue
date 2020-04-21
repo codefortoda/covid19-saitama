@@ -35,29 +35,6 @@
   </v-card>
 </template>
 
-<i18n>
-{
-  "ja": {
-    "{date} 更新": "{date} 更新"
-  },
-  "en": {
-    "{date} 更新": "Last update: {date}"
-  },
-  "zh-cn": {
-    "{date} 更新": "{date} 更新"
-  },
-  "zh-tw": {
-    "{date} 更新": "{date} 更新"
-  },
-  "ko": {
-    "{date} 更新": "{date} 갱신"
-  },
-  "ja-basic": {
-    "{date} 更新": "{date} に あたらしく しました"
-  }
-}
-</i18n>
-
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
