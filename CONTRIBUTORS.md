@@ -15,6 +15,7 @@ Saitama Covid-19 response site contributors
 | Takuya Arita | [@ariarijp](https://github.com/ariarijp) | [@ariarijp](https://twitter.com/ariarijp) | Kaizen |
 | choan | [@nanchovy](https://github.com/nanchovy) | [@9chovy](https://twitter.com/9chovy) | Coding |
 | カキノニワデザイン || [@kakinoniwa_d](https://twitter.com/kakinoniwa_d) | Logo design |
+| Kodai Yasuda | | [@yasudakodai](https://twitter.com/yasudakodai) | Translation |
 | -add your name here!- | GitHub | Twitter | -what did you do?- |
 
 ご協力に感謝です！！！
