@@ -30,7 +30,7 @@
         <li class="item in-hospital">
           <div class="gutter oneThird">
             <div class="box">
-              <span>{{ $t('入院中') }}</span>
+              <span>{{ $t('入院等') }}</span>
               <span>
                 <b>{{ 入院中 }}</b>
                 <span class="unit">{{ $t('人') }}</span>
