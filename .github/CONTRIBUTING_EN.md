@@ -2,7 +2,7 @@
 
 Contributors, thank you for participating in this project!
 
-I'm Seki, the development manager. If you have any questions, feel free to ask me on Slack etc.
+If you have any questions, feel free to ask me on Slack etc.
 
 This page shows how you can contribute to the development of this site.
 

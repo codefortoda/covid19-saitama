@@ -29,6 +29,10 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 [Link先](https://github.com/tokyo-metropolitan-gov/covid19/blob/development/FORKED_SITES.md)を御覧ください。
 
+## 翻訳者向け情報
+
+翻訳をお手伝いいただける方は、[こちらのドキュメント](./TRANSLATION.md)を御覧ください。
+
 ## 開発者向け情報
 
 ### 環境構築の手順
