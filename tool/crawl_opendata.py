@@ -29,7 +29,7 @@ def get_opendata_from_url(data_type, date, pattern_text):
 
     # Save csv data
     for i, atag in enumerate(links):
-        file_name = "%s%s-%s.csv" % (data_type, date, i)
+        file_name = "%s%s-%s.csv" % (data_type, datetime.datetime.strftime(datetime.datetime.now(), "%Y%m%d"), i)
  
         # get recent update time of the file
         mat = re.match("%s.*/resource/(.*)/download/%s%s\.csv"\

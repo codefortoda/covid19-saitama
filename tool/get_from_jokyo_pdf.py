@@ -9,21 +9,27 @@ import re
 import sys
 import urllib3
 import datetime
+import requests
 from tika import parser
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
 # 一旦成功前提でTrue返しときますが、例外発生時にはFalse返すように
 # してもいいかもしれません
 def get_pdf_file(monthday: str, url: str) -> bool:
-    http = urllib3.PoolManager()
-    file_name = "itiran%s.pdf" % monthday
-    #url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/youseisyaichirannzeroyonn.pdf"
     if url == '':
-        url = "http://www.pref.saitama.lg.jp/a0701/covid19/documents/kaz0408.pdf"# % file_name
+        url_jokyo = "http://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html"
+        r = requests.get(url_jokyo)
+        soup = BeautifulSoup(r.content, "html.parser")
+        tag = soup.find("a", text=re.compile("^陽性確認者一覧.+?PDF"))
+        url = urljoin(url_jokyo, tag.get("href"))
+
+    file_name = "itiran%s.pdf" % monthday
+    http = urllib3.PoolManager()
     r = http.request('GET', url)
     with open(file_name, "wb") as f:
         f.write(r.data)
     return True
-
 
 def main(date: str, url: str) -> None:
 
@@ -41,7 +47,6 @@ def main(date: str, url: str) -> None:
         for l in lines:
             if len(l) > 0 and l[0].isdecimal():
                 data = l.split()
-                print("data:", data)
                 pos = 2
 
                 # 8 8 リンク先概要2 みたいなデータの場合1列追加
@@ -54,11 +59,15 @@ def main(date: str, url: str) -> None:
                     match = re.match("(.*)月(.*)日", data[pos])
                     date_text = '2020/'+ match.group(1) + '/' + match.group(2)
 
-                print("len", len(data), ",", pos+2)
                 if re.match("(.*)[市町村]", data[pos+1]):
                     city = data[pos+1]
                     gender = ''
                     age = ''
+                elif re.match("(.*)[性]", data[pos+1]):
+                    # 年齢が「10歳未満」の場合に「”10歳未満”+性別」となるため、年齢・性別を分割
+                    age = data[pos+1][-2:]
+                    gender = data[pos+1][:-2]
+                    city = data[pos+2]
                 else:
                     gender = data[pos+1]
                     age = data[pos+2]
@@ -69,16 +78,6 @@ def main(date: str, url: str) -> None:
                 f.write("%s,%s,%s,%s,%s, \n" % (data[0], date_text, gender, \
                     age, city))
         print("Saving list%s.csv" % date )
-
-    # 更新時刻は厳密には元ファイルの時刻を取ってくる必要があるので
-    # 後ほど変更予定
-    file_name = file_name = "%s%s-%s.csv" % ("jokyo", date, 0)
-    with open("last_update_" + file_name, 'w') as f:
-        now = datetime.datetime.strftime(datetime.datetime.now(),\
-                "%Y/%m/%d %H:%M")
-        f.write(now)
-        print("Saved last_update_" + file_name)
-
 
 date = ""
 url = ""

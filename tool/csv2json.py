@@ -24,7 +24,8 @@ def process_patients_total(date: str) -> Dict:
         "軽中症": patients[2],
         "重症": patients[3],
         "退院": patients[4],
-        "死亡": patients[5]
+        "死亡": patients[5],
+        "検査実施人数": patients[6]
     }
     return patients_total
 
@@ -113,9 +114,10 @@ def process_inspections_summary(date: str, kensa_recent: str) -> Dict:
         inspection_counts.append({ "日付":
             datetime.datetime.strptime(ins_json["labels"][ij], '%Y/%m/%d').strftime('%Y-%m-%dT08:00:00.000Z'), "小計":ins_json["県が実施"][ij] })
 
+    inspection_counts.sort(key = lambda k: k["日付"]) # 更新時の差分が大きくならないようにソートさせます
     inspections_summary = {
         "date": kensa_recent,
-        "data": inspection_counts.sort(key = lambda k: k["日付"]) # 更新時の差分が大きくならないようにソートさせます
+        "data": inspection_counts
     }
     patients_summary = {
         "date": kensa_recent,
@@ -130,9 +132,11 @@ def main(date: str):
         date = datetime.datetime.strftime(datetime.datetime.now() - \
             datetime.timedelta(days=0),"%Y%m%d")
 
+    patients_total = process_patients_total(date)
+
     jokyo_recent = open_recent_data("last_update_jokyo%s-0.csv" % date)
     #kensa_recent = open_recent_data("last_update_kensa%s-0.csv" % date)
-    jokyo_recent = jokyo_recent.replace('/', '\\/')
+    #jokyo_recent = jokyo_recent.replace('/', '\\/')
     #kensa_recent = kensa_recent.replace('/', '\\/')
     patients, patients_summary_data = process_patients(date)
     _patients_summary, inspections_summary = process_inspections_summary(date, jokyo_recent)
@@ -140,7 +144,6 @@ def main(date: str):
         "date": jokyo_recent,
         "data": patients_summary_data
     }
-    patients_total = process_patients_total(date)
 
     result = {
         "contacts": {
@@ -169,7 +172,7 @@ def main(date: str):
         "lastUpdate": jokyo_recent,
         "main_summary": {
             "attr": "検査実施人数",
-            "value": 1000,
+            "value": patients_total["検査実施人数"],
             "children": [
                 {
                     "attr": "陽性患者数",
@@ -208,11 +211,10 @@ def main(date: str):
 
     # create backup
     shutil.copy('./data.json', 'data.json.bak')
-    with open('./data.json', 'w') as f:
+    with open('./data.json', 'w', encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
     print("Done.")
-
 
 if len(sys.argv) == 2:
     date = sys.argv[1]
