@@ -37,7 +37,7 @@ export default {
     // データを追加
     for (const item of Data.patients.data) {
       const retrievedMunicipality = municipalitiesTable.datasets.filter(
-        _=>_.label === this.$t(item.居住地)
+        _ => _.label === this.$t(item.居住地)
       )
       if (retrievedMunicipality.length === 0) {
         municipalitiesTable.datasets.push({
