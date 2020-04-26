@@ -8,10 +8,9 @@
       :info="info"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'"
       :url-label="$t('オープンデータへのリンク')"
-    >
-    </confirmed-cases-by-municipalities-table>
+    />
   </v-col>
-</template> 
+</template>
 
 <script>
 import dayjs from 'dayjs'
@@ -27,9 +26,9 @@ export default {
     const municipalitiesTable = {
       headers: [],
       datasets: []
-    } 
+    }
 
-    // ヘッダーを設定    
+    // ヘッダーを設定
     municipalitiesTable.headers = [
       { text: this.$t('市町村'), value: 'label' },
       { text: this.$t('陽性患者数'), value: 'nbCases', align: 'end' }
@@ -37,14 +36,18 @@ export default {
 
     // データを追加
     for (const item of Data.patients.data) {
-      const retrievedMunicipality = municipalitiesTable.datasets.filter(_=>_.label === this.$t(item.居住地))
+      const retrievedMunicipality = municipalitiesTable.datasets.filter(
+        _=>_.label === this.$t(item.居住地)
+      )
       if (retrievedMunicipality.length === 0) {
         municipalitiesTable.datasets.push({
           label: this.$t(item.居住地),
           nbCases: 1
         })
       } else {
-        const idx = municipalitiesTable.datasets.indexOf(retrievedMunicipality[0])
+        const idx = municipalitiesTable.datasets.indexOf(
+          retrievedMunicipality[0]
+        )
         municipalitiesTable.datasets[idx].nbCases++
       }
     }
