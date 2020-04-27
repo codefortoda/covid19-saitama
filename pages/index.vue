@@ -10,6 +10,7 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <confirmed-cases-by-municipalities-card />
       <inspection-summary-card />
     </v-row>
   </div>
@@ -21,6 +22,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/confirmed-cases-number-card.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/confirmed-cases-attributes-card.vue'
+import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import InspectionSummaryCard from '@/components/cards/InspectionSummaryCard.vue'
 import Data from '@/data/data.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
@@ -33,6 +35,7 @@ export default {
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    ConfirmedCasesByMunicipalitiesCard,
     InspectionSummaryCard
   },
   data() {

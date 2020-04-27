@@ -398,6 +398,7 @@
   "皆野町": "Minano",
   "長瀞町": "Nagatoro",
   "小鹿野町": "Ogano",
+  "川口市外": "outside Kawaguchi",
   "-": "-",
   "未就学児": "preschooler",
   "100歳以上": "Over 100 years old",
@@ -414,5 +415,7 @@
   "行政の皆さまのご協力に感謝します。": "We greatly appreciate cooperations of administration staff in the Saitama Prefecture.",
   "このサイトのすべてのデータは「クリエイティブ・コモンズ 表示 2.1 日本」にて提供されています。": "Content on This Site is Licensed Under a Creative Commons Attribution 2.1 Japan License.",
   "入院等": "hospitalization, etc.",
-  "（注）「入院等」には、入院中の他、入院予定・自宅療養・宿泊療養等を含む": "(Note) \"Hospitalization, etc.\" includes not only hospitalization but also hospitalization schedule, home medical treatment, accommodation medical treatment, etc."
+  "（注）「入院等」には、入院中の他、入院予定・自宅療養・宿泊療養等を含む": "(Note) \"Hospitalization, etc.\" includes not only hospitalization but also hospitalization schedule, home medical treatment, accommodation medical treatment, etc.",
+  "市町村": "Municipality",
+  "陽性患者数（市町村別）": "Number of confirmed cases (by municipality)"  
 }
