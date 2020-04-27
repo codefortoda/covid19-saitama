@@ -9,7 +9,7 @@ import sys
 from bs4 import BeautifulSoup as bs4
 from datetime import datetime as dt
 
-# 「感染確認状況や関連情報」(埼玉県)のWebサイトからHTMLを取得する。 
+# 「感染確認状況や関連情報」(埼玉県)のWebサイトからHTMLを取得する。
 res = requests.get('http://www.pref.saitama.lg.jp/a0701/shingatacoronavirus.html')
 
 # 欲しい情報は「<div class="outline">...</div>」タグ内にあるので、改行を除去し、一行の文字列として抜き出す。
@@ -18,7 +18,7 @@ text = bs4(res.content, 'html.parser').select('.outline')[0].get_text().replace(
 # 必要な値を切り出す。「陽性確認者数」などの切り出し時のキーワードとして用いている文字列は
 # 変更される可能性があり、その際の変更箇所把握を容易にするため、値ごとに正規表現を適用する。
 m1 = re.search(r'陽性確認者数：([0-9]+)人', text).group(1)
-m2 = re.search(r'入院者等：([0-9]+)人', text).group(1)
+m2 = re.search(r'現在の患者数：([0-9]+)人', text).group(1)
 m3 = re.search(r'うち軽症・中等症：([0-9]+)人', text).group(1)
 m4 = re.search(r'重症者：([0-9]+)人', text).group(1)
 m5 = re.search(r'退院：([0-9]+)人', text).group(1)
@@ -30,8 +30,8 @@ m7 = re.search(r'自治体による検査（～([0-9]+)月([0-9]+)日）：延([
 
 # 更新日時取得
 text = bs4(res.content, 'html.parser').select('.box_info_ttl span.txt_big')[0].get_text().replace('\n', '')
-node = re.search(r'感染確認状況\(([0-9]+)月([0-9]+)日 ([0-9]+)時([0-9]+)分現在\)', text).groups()
-last_update = "{}\/{:02}\/{:02} {:02}:{:02}".format(dt.today().year, int(node[0]), int(node[1]), int(node[2]), int(node[3]))
+node = re.search(r'感染確認状況\(([0-9]+)月([0-9]+)日 現在\)', text).groups()
+last_update = "{}\/{:02}\/{:02} {:02}:{:02}".format(dt.today().year, int(node[0]), int(node[1]), 21, 0)
 file_name = dt.now().strftime("last_update_jokyo%Y%m%d-0.csv")
 with open(file_name, 'w') as f:
     f.write(last_update)
