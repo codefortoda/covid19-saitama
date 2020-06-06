@@ -60,6 +60,7 @@ export default class DataView extends Vue {
     position: absolute;
     top: 25px;
     right: 25px;
+    width: 40%;
     &-summary {
       color: $gray-2;
       font-family: Hiragino Sans;
@@ -73,6 +74,7 @@ export default class DataView extends Vue {
       }
     }
     &-date {
+      white-space: normal;
       font-size: 12px;
       line-height: 12px;
       color: $gray-3;
@@ -94,7 +96,7 @@ export default class DataView extends Vue {
     flex-flow: column;
     color: $gray-2;
     &.with-infoPanel {
-      width: calc(100% - 11em);
+      width: 50%;
     }
   }
   &-Title {
