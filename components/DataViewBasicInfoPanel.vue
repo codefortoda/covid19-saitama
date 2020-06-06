@@ -24,7 +24,7 @@
       }
     }
     &-date {
-      white-space: nowrap;
+      white-space: normal;
       display: inline-block;
       font-size: 12px;
       line-height: 12px;
