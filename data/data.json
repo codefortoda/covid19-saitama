@@ -10,11 +10,11 @@
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 31,
+                        "value": 32,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 28
+                                "value": 29
                             },
                             {
                                 "attr": "重症",
