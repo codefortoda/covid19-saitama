@@ -13,10 +13,10 @@
       :height="240"
     />
     <date-select-slider
-        :chart-data="chartData"
-        :value="[0, sliderMax]"
-        :slider-max="sliderMax"
-        @sliderInput="sliderUpdate"
+      :chart-data="chartData"
+      :value="[0, sliderMax]"
+      :slider-max="sliderMax"
+      @sliderInput="sliderUpdate"
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -41,7 +41,7 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
-  components: { 
+  components: {
     DataView, 
     DataSelector,
     DateSelectSlider, 
