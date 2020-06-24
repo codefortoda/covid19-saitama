@@ -12,6 +12,12 @@
       :options="displayOption"
       :height="240"
     />
+    <date-select-slider
+      :chart-data="chartData"
+      :value="[0, sliderMax]"
+      :slider-max="sliderMax"
+      @sliderInput="sliderUpdate"
+    />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
@@ -30,11 +36,18 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
+import DateSelectSlider from '@/components/DateSelectSlider.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel, OpenDataLink },
+  components: {
+    DataView,
+    DataSelector,
+    DateSelectSlider,
+    DataViewBasicInfoPanel,
+    OpenDataLink
+  },
   props: {
     title: {
       type: String,
@@ -84,10 +97,18 @@ export default {
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'transition',
+      graphRange: [0, 1]
     }
   },
   computed: {
+    sliderMax() {
+      if (!this.chartData || this.chartData.length === 0) {
+        return 1
+      }
+      this.sliderUpdate([0, this.chartData.length - 1])
+      return this.chartData.length - 1
+    },
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
@@ -192,6 +213,7 @@ export default {
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       return {
+        animation: false,
         tooltips: {
           displayColors: false,
           callbacks: {
@@ -220,6 +242,8 @@ export default {
                 display: false
               },
               ticks: {
+                min: this.chartData[this.graphRange[0]].label,
+                max: this.chartData[this.graphRange[1]].label,
                 fontSize: 9,
                 maxTicksLimit: 20,
                 fontColor: '#808080',
@@ -300,6 +324,9 @@ export default {
     }
   },
   methods: {
+    sliderUpdate(sliderValue) {
+      this.graphRange = sliderValue
+    },
     formatDayBeforeRatio(dayBeforeRatio) {
       const dayBeforeRatioLocaleString = dayBeforeRatio.toLocaleString()
       switch (Math.sign(dayBeforeRatio)) {
