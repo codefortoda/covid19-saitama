@@ -122,12 +122,30 @@ export default {
       }
     },
     displayData() {
+      const zeroMouseOverHeight = 5
+      const transparentWhite = '#FFFFFF00'
+
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
             return d.label
           }),
           datasets: [
+            {
+              label: this.dataKind,
+              data: this.chartData.map(_d => {
+                return 0
+              }),
+              backgroundColor: transparentWhite,
+              borderColor: transparentWhite,
+              borderWidth: 0,
+              minBarLength: this.chartData.map(d => {
+                if (d.transition <= 0) {
+                  return zeroMouseOverHeight
+                }
+                return 0
+              })
+            },
             {
               label: this.dataKind,
               data: this.chartData.map(d => {
@@ -144,6 +162,21 @@ export default {
           return d.label
         }),
         datasets: [
+          {
+            label: this.dataKind,
+            data: this.chartData.map(_d => {
+              return 0
+            }),
+            backgroundColor: transparentWhite,
+            borderColor: transparentWhite,
+            borderWidth: 0,
+            minBarLength: this.chartData.map(d => {
+              if (d.cumulative <= 0) {
+                return zeroMouseOverHeight
+              }
+              return 0
+            })
+          },
           {
             label: this.dataKind,
             data: this.chartData.map(d => {
