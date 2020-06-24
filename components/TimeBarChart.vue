@@ -42,11 +42,11 @@ import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
   components: {
-    DataView, 
+    DataView,
     DataSelector,
-    DateSelectSlider, 
-    DataViewBasicInfoPanel, 
-    OpenDataLink 
+    DateSelectSlider,
+    DataViewBasicInfoPanel,
+    OpenDataLink
   },
   props: {
     title: {

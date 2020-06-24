@@ -8,6 +8,8 @@
     :min="0"
     thumb-label="always"
     style="padding-top: 35px;"
+    color="#00a040"
+    track-color="#c9eace"
   >
     <template v-slot:thumb-label="props">
       {{ getSliderLabels(props.value) }}
