@@ -144,7 +144,7 @@ export default {
     },
     displayData() {
       const zeroMouseOverHeight = 5
-      const transparentWhite = '#FFFFFF00'
+      const transparentWhite = 'rgba(255, 255, 255, 0)'
 
       if (this.dataKind === 'transition') {
         return {
