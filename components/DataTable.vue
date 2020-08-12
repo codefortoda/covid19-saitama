@@ -3,6 +3,13 @@
     <template v-slot:button>
       <span />
     </template>
+    <v-text-field
+      :placeholder="$t('陽性患者の属性')"
+      single-line
+      hide-details
+      outlined
+      v-model="search"
+    />
     <v-data-table
       :headers="chartData.headers"
       :items="chartData.datasets"
@@ -11,6 +18,8 @@
       :height="240"
       :fixed-header="true"
       :mobile-breakpoint="0"
+      :filter="filter"
+      :search="search"
       class="cardTable"
     />
     <template v-slot:infoPanel>
@@ -78,6 +87,16 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
+  methods: {
+    filter(val, search) {
+      return val.contains(search);
+    }
+  },
+  data() {
+    return {
+      search: ""
+    };
+  },
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {
