@@ -47,7 +47,6 @@
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import { TranslateResult } from 'vue-i18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 type Item = {
   title: TranslateResult
