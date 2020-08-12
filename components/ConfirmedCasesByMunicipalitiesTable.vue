@@ -3,6 +3,13 @@
     <template v-slot:button>
       <span />
     </template>
+    <v-text-field
+      :placeholder="$t('絞り込み')"
+      single-line
+      hide-details
+      outlined
+      v-model="search"
+    />
     <v-data-table
       :headers="chartData.headers"
       :items="chartData.datasets"
@@ -12,6 +19,8 @@
       :fixed-header="true"
       :disable-sort="true"
       :mobile-breakpoint="0"
+      :filter="filter"
+      :search="search"
       class="cardTable"
     />
     <template v-slot:infoPanel>
@@ -79,6 +88,16 @@ import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import OpenDataLink from '@/components/OpenDataLink.vue'
 
 export default {
+  methods: {
+    filter(val, search) {
+      return val.contains(search);
+    }
+  },
+  data() {
+    return {
+      search: ""
+    };
+  },
   components: { DataView, DataViewBasicInfoPanel, OpenDataLink },
   props: {
     title: {

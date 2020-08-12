@@ -4,7 +4,7 @@
       <span />
     </template>
     <v-text-field
-      :placeholder="$t('陽性患者の属性')"
+      :placeholder="$t('絞り込み')"
       single-line
       hide-details
       outlined
