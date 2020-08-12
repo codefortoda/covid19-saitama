@@ -21,11 +21,7 @@
               lg="3"
               xl="2"
             >
-              <v-card
-                :href="pref.link"
-                flat
-                tile
-              >
+              <v-card :href="pref.link" flat tile>
                 <v-card-title>
                   {{ pref.title }}
                   <span v-if="pref.subtitle !== ''">
@@ -65,9 +61,7 @@ type ItemList = {
 }
 
 export default Vue.extend({
-  components: {
-    PageHeader
-  },
+  components: {},
   computed: {
     items(): ItemList[] {
       return [
@@ -84,7 +78,8 @@ export default Vue.extend({
               title: this.$t('さいたま市'),
               subtitle: this.$t('公式'),
               isOfficial: true,
-              link: 'https://www.city.saitama.jp/002/001/008/006/013/001/p070442.html'
+              link:
+                'https://www.city.saitama.jp/002/001/008/006/013/001/p070442.html'
             },
             {
               title: this.$t('川口市'),
@@ -139,7 +134,7 @@ export default Vue.extend({
               subtitle: this.$t(''),
               isOfficial: false,
               link: 'https://stop-covid19-nagano.netlify.app/'
-            },
+            }
           ]
         },
         // 首都圏・大阪・京都・兵庫・愛知・岐阜・石川・北海道・福岡
@@ -187,7 +182,7 @@ export default Vue.extend({
               subtitle: this.$t(''),
               isOfficial: false,
               link: 'https://stopcovid19.hokkaido.dev/'
-            },
+            }
           ]
         },
         {
@@ -402,7 +397,7 @@ export default Vue.extend({
               subtitle: this.$t(''),
               isOfficial: false,
               link: 'https://okinawa.stopcovid19.jp/'
-            },
+            }
           ]
         }
       ]
