@@ -201,6 +201,10 @@ export default {
           link: this.localePath('/about')
         },
         {
+          title: this.$t('他都道府県の新型コロナ対策サイト'),
+          link: this.localePath('/otherpref')
+        },
+        {
           title: this.$t('東京都公式ホームページ'),
           link: 'https://www.pref.saitama.lg.jp/',
           divider: true
