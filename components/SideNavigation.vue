@@ -17,14 +17,6 @@
         </h1>
       </nuxt-link>
     </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="SideNavigation-Language">
-      <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-        {{ $t('多言語対応選択メニュー') }}
-        <LanguageSelector />
-      </label>
-    </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -34,6 +26,13 @@
         mdi-close
       </v-icon>
       <v-list :flat="true">
+        <div class="SideNavigation-Language">
+          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            {{ $t('多言語対応選択メニュー') }}
+            <LanguageSelector />
+          </label>
+        </div>
+        <v-divider class="SideNavigation-Divider" />
         <v-container
           v-for="(item, i) in items"
           :key="i"
