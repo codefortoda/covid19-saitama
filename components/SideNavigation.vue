@@ -10,7 +10,7 @@
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('東京都')" />
+          <img src="/logo.svg" :alt="$t('埼玉県')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
@@ -199,6 +199,10 @@ export default {
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
+        },
+        {
+          title: this.$t('他都道府県の新型コロナ対策サイト'),
+          link: this.localePath('/otherpref')
         },
         {
           title: this.$t('東京都公式ホームページ'),
