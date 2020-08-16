@@ -10,21 +10,13 @@
       </v-icon>
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <div class="SideNavigation-Logo">
-          <img src="/logo.svg" :alt="$t('東京都')" />
+          <img src="/logo.svg" :alt="$t('埼玉県')" />
         </div>
         <h1 class="SideNavigation-Heading">
           {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="SideNavigation-Language">
-      <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
-        {{ $t('多言語対応選択メニュー') }}
-        <LanguageSelector />
-      </label>
-    </div>
-    <v-divider class="SideNavigation-HeadingDivider" />
     <div class="sp-none" :class="{ open: isNaviOpen }">
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
@@ -34,6 +26,13 @@
         mdi-close
       </v-icon>
       <v-list :flat="true">
+        <div class="SideNavigation-Language">
+          <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+            {{ $t('多言語対応選択メニュー') }}
+            <LanguageSelector />
+          </label>
+        </div>
+        <v-divider class="SideNavigation-Divider" />
         <v-container
           v-for="(item, i) in items"
           :key="i"
@@ -199,6 +198,10 @@ export default {
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
+        },
+        {
+          title: this.$t('他都道府県の新型コロナ対策サイト'),
+          link: this.localePath('/otherpref')
         },
         {
           title: this.$t('東京都公式ホームページ'),

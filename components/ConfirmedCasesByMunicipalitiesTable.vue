@@ -12,7 +12,16 @@
       :fixed-header="true"
       :disable-sort="true"
       :mobile-breakpoint="0"
+      :filter="filter"
+      :search="search"
       class="cardTable"
+    />
+    <v-text-field
+      v-model="search"
+      :placeholder="$t('絞り込み')"
+      clearable
+      hide-details
+      solo
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
@@ -111,6 +120,16 @@ export default {
       type: String,
       required: false,
       default: ''
+    }
+  },
+  data() {
+    return {
+      search: ''
+    }
+  },
+  methods: {
+    filter(val, search) {
+      return val.contains(search)
     }
   }
 }
