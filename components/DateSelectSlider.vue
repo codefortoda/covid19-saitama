@@ -7,10 +7,10 @@
     :max="sliderMax"
     :min="0"
     thumb-label="always"
-    style="padding-top: 35px;"
+    style="padding-top: 36px;"
     color="#00a040"
     track-color="#c9eace"
-    :thumb-size="34"
+    :thumb-size="35"
   >
     <template v-slot:thumb-label="props">
       {{ getSliderLabels(props.value) }}
@@ -20,7 +20,7 @@
 
 <style>
 .v-slider__thumb-label {
-  font-size: 0.6rem !important;
+  font-size: 0.8rem !important;
 }
 </style>
 
@@ -83,7 +83,7 @@ export default {
         return this.chartData[id]
       }
 
-      return dayjs(this.chartData[id].label).format('MM/DD')
+      return dayjs(this.chartData[id].label).format('M/D')
     }
   }
 }
