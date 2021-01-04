@@ -20,11 +20,12 @@
 
 <style>
 .v-slider__thumb-label {
-  font-size: 0.8rem !important;
+  font-size: 0.6rem !important;
 }
 </style>
 
 <script>
+import dayjs from 'dayjs'
 export default {
   name: 'DateSelectSlider',
   props: {
@@ -82,7 +83,7 @@ export default {
         return this.chartData[id]
       }
 
-      return this.chartData[id].label
+      return dayjs(this.chartData[id].label).format('MM/DD')
     }
   }
 }
