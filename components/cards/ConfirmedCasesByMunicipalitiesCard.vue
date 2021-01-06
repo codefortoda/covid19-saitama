@@ -61,7 +61,7 @@ export default {
 
     const info = {
       sText: this.$t('{date}の累計', {
-        date: dayjs(Data.patients.date).format('M/DD')
+        date: dayjs(Data.patients.date).format('YYYY/M/D')
       })
     }
 
