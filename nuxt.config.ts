@@ -112,6 +112,7 @@ const config: Configuration = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    'nuxt-webfontloader',
     [
       'nuxt-i18n',
       {
@@ -158,6 +159,11 @@ const config: Configuration = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  webfontloader: {
+    google: {
+      families: ['Roboto&display=swap']
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
