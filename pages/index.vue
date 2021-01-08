@@ -25,7 +25,6 @@ import ConfirmedCasesAttributesCard from '@/components/cards/confirmed-cases-att
 import ConfirmedCasesByMunicipalitiesCard from '@/components/cards/ConfirmedCasesByMunicipalitiesCard.vue'
 import InspectionSummaryCard from '@/components/cards/InspectionSummaryCard.vue'
 import Data from '@/data/data.json'
-import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 
 export default {
@@ -39,12 +38,8 @@ export default {
     InspectionSummaryCard
   },
   data() {
-    // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
-
     const data = {
       Data,
-      confirmedCases,
       newsItems: News.newsItems
     }
     return data
