@@ -422,5 +422,13 @@
   "表示期間の最小範囲は14日間です": "14日間（にちかん）から 見（み）ることが できます",
   "絞り込み": "絞（しぼ）り込（こ）み",
   "1ページ当たり": "１つのページあたり",
+<<<<<<< HEAD
   "{itemsLength} 項目中 {pageStart} - {pageStop} ": "{itemsLength} 項目中 {pageStart} - {pageStop} "
+=======
+  "{itemsLength} 項目中 {pageStart} - {pageStop} ": "{itemsLength} 項目中 {pageStart} - {pageStop} ",
+  "自宅療養": "自宅（じたく）で やすむ",
+  "宿泊療養": "宿泊（しゅくはく）して やすむ",
+  "調整中": "ようす を みている",
+  "退院・療養終了": "たいいん・なおった ひと"
+>>>>>>> issue75-change-confirmed-case-detail
 }
