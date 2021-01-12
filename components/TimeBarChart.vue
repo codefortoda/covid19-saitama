@@ -243,7 +243,7 @@ export default {
               ticks: {
                 min: this.chartData[this.graphRange[0]].label,
                 max: this.chartData[this.graphRange[1]].label,
-                fontSize: 10,
+                fontSize: 12,
                 maxTicksLimit: 20,
                 fontColor: '#808080'
               }

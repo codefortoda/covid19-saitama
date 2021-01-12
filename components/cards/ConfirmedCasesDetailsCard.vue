@@ -3,7 +3,7 @@
     <svg-card
       :title="$t('検査陽性者の状況')"
       :title-id="'details-of-confirmed-cases'"
-      :date="Data.patients.date"
+      :date="lastUpdate"
       :url="'https://www.pref.saitama.lg.jp/a0701/covid19/jokyo.html'"
       :url-label="$t('出典：新型コロナウイルス感染症の県内の発生状況')"
     >
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Data from '@/data/data.json'
+import mainSummary from '@/data/main_summary.json'
 import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import SvgCard from '@/components/SvgCard.vue'
 import ConfirmedCasesTable from '@/components/ConfirmedCasesTable.vue'
@@ -28,12 +28,14 @@ export default {
   },
   data() {
     // 検査陽性者の状況
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
+    const confirmedCases = formatConfirmedCases(mainSummary)
+    const lastUpdate = mainSummary.lastUpdate
 
     const data = {
-      Data,
+      lastUpdate,
       confirmedCases
     }
+
     return data
   }
 }

@@ -36,7 +36,7 @@ export default (data: DataType[]) => {
     const TableRow: TableDataType = {
       日付:
         (dayjs(d['リリース日']).isValid()
-          ? dayjs(d['リリース日']).format('MM/DD')
+          ? dayjs(d['リリース日']).format('YYYY/MM/DD')
           : String(d['リリース日'])) ?? '不明',
       居住地: d['居住地'] ?? '不明',
       年代: d['年代'] ?? '不明',

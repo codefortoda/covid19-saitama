@@ -7,10 +7,10 @@
     :max="sliderMax"
     :min="0"
     thumb-label="always"
-    style="padding-top: 35px;"
+    style="padding-top: 36px;"
     color="#00a040"
     track-color="#c9eace"
-    :thumb-size="34"
+    :thumb-size="35"
   >
     <template v-slot:thumb-label="props">
       {{ getSliderLabels(props.value) }}
@@ -25,6 +25,7 @@
 </style>
 
 <script>
+import dayjs from 'dayjs'
 export default {
   name: 'DateSelectSlider',
   props: {
@@ -82,7 +83,7 @@ export default {
         return this.chartData[id]
       }
 
-      return this.chartData[id].label
+      return dayjs(this.chartData[id].label).format('M/D')
     }
   }
 }

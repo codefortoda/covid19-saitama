@@ -242,17 +242,23 @@ export default Vue.extend({
               link: 'https://covid19-fukui.com/'
             },
             {
-              title: this.$t('静岡市'),
-              subtitle: this.$t('公式'),
-              isOfficial: true,
-              link: 'https://stopcovid19.city.shizuoka.lg.jp/'
+              title: this.$t('静岡県'),
+              subtitle: this.$t(''),
+              isOfficial: false,
+              link: 'https://stopcovid19.code4numazu.org/'
             },
-            {
-              title: this.$t('浜松市'),
-              subtitle: this.$t('公式'),
-              isOfficial: true,
-              link: 'https://stopcovid19.code4hamamatsu.org/'
-            },
+            // {
+            //   title: this.$t('静岡市'),
+            //   subtitle: this.$t('公式'),
+            //   isOfficial: true,
+            //   link: 'https://stopcovid19.city.shizuoka.lg.jp/'
+            // },
+            // {
+            //   title: this.$t('浜松市'),
+            //   subtitle: this.$t('公式'),
+            //   isOfficial: true,
+            //   link: 'https://stopcovid19.code4hamamatsu.org/'
+            // },
             {
               title: this.$t('三重県'),
               subtitle: this.$t(''),
@@ -331,11 +337,18 @@ export default Vue.extend({
               isOfficial: false,
               link: 'https://covid19-tokushima.netlify.com/'
             },
+            // {
+            //   title: this.$t('高知県'),
+            //   subtitle: this.$t(''),
+            //   isOfficial: false,
+            //   link: 'https://covid19-kochi.netlify.app/'
+            // },
             {
               title: this.$t('高知県'),
-              subtitle: this.$t(''),
-              isOfficial: false,
-              link: 'https://covid19-kochi.netlify.app/'
+              subtitle: this.$t('公式'),
+              isOfficial: true,
+              link:
+                'https://www.pref.kochi.lg.jp/soshiki/111301/info-COVID-19.html'
             },
             {
               title: this.$t('福岡県'),
