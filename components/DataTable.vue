@@ -6,15 +6,27 @@
     <v-data-table
       :headers="chartData.headers"
       :items="chartData.datasets"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      :height="240"
+      :height="306"
       :fixed-header="true"
       :mobile-breakpoint="0"
       :filter="filter"
       :search="search"
       class="cardTable"
-    />
+      :footer-props="{
+        'items-per-page-options': [10, 20, 50, 100, -1],
+        'items-per-page-text': $t('1ページ当たり')
+      }"
+    >
+      <template slot="footer.page-text" slot-scope="props">
+        {{
+          $t('{itemsLength} 項目中 {pageStart} - {pageStop} ', {
+            itemsLength: props.itemsLength,
+            pageStart: props.pageStart,
+            pageStop: props.pageStop
+          })
+        }}
+      </template>
+    </v-data-table>
     <v-text-field
       v-model="search"
       :placeholder="$t('絞り込み')"
