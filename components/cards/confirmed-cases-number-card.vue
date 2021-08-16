@@ -10,7 +10,17 @@
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-jokyo'"
       :url-label="$t('オープンデータへのリンク')"
       :option-count="optionCount"
-    />
+    >
+      <template v-slot:description>
+        <p class="notice">
+          {{
+            $t(
+              '（注）埼玉県オープンデータの提供終了に伴い、現在更新が停止しています。（2021/8/1）'
+            )
+          }}
+        </p>
+      </template>
+    </time-bar-chart>
   </v-col>
 </template>
 
