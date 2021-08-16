@@ -1,7 +1,13 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
-      <span />
+      <p class="notice">
+        {{
+          $t(
+            '（注）埼玉県オープンデータの提供終了に伴い、現在更新が停止しています。（2021/8/1）'
+          )
+        }}
+      </p>
     </template>
     <v-data-table
       :headers="chartData.headers"
