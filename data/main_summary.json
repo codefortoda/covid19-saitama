@@ -1,14 +1,14 @@
 {
     "attr": "検査実施人数",
-    "value": 102931,
+    "value": 102951,
     "children": [
         {
             "attr": "陽性患者数",
-            "value": 115883,
+            "value": 115887,
             "children": [
                 {
                     "attr": "入院中",
-                    "value": 39,
+                    "value": 36,
                     "children": [
                         {
                             "attr": "重症",
@@ -26,15 +26,15 @@
                 },
                 {
                     "attr": "新規公表分",
-                    "value": 3
+                    "value": 4
                 },
                 {
                     "attr": "死亡",
-                    "value": 1058
+                    "value": 1059
                 },
                 {
                     "attr": "退院・療養終了",
-                    "value": 114752
+                    "value": 114757
                 }
             ]
         }
