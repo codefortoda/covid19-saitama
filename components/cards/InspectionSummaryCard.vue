@@ -1,11 +1,11 @@
 <template>
-  <v-col cols="12" md="6" class="DataCard">
+  <v-col v-if="display" cols="12" md="6" class="DataCard">
     <time-bar-chart
       :title="$t('埼玉県が実施した新型コロナウイルス疑い例検査数（延べ人数）')"
       :title-id="'number-of-inspections'"
       :chart-id="'time-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
-      :date="Data.inspections_summary.date"
+      :date="lastUpdate"
       :unit="$t('件')"
       :url="'https://opendata.pref.saitama.lg.jp/data/dataset/covid19-kensa'"
       :url-label="
@@ -47,11 +47,19 @@ export default {
   },
   data() {
     // 感染者数グラフ
-    const inspectionsGraph = formatGraph(Data.inspections_summary.data)
-
+    let inspectionsGraph = {}
+    let lastUpdate = ''
+    let display = false
+    if (Data.inspections_summary.data) {
+      inspectionsGraph = formatGraph(Data.inspections_summary.data)
+      lastUpdate = Data.inspections_summary.date
+      display = true
+    }
     const data = {
       Data,
-      inspectionsGraph
+      inspectionsGraph,
+      lastUpdate,
+      display
     }
     return data
   }
