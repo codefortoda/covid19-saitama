@@ -2,33 +2,33 @@
     "lastUpdate": "2022/05/15 21:00",
     "main_summary": {
         "attr": "検査実施人数",
-        "value": 124047,
+        "value": 124153,
         "children": [
             {
                 "attr": "陽性患者数",
-                "value": 531446,
+                "value": 533079,
                 "children": [
                     {
                         "attr": "入院中",
-                        "value": 387,
+                        "value": 376,
                         "children": [
                             {
                                 "attr": "軽症・中等症",
-                                "value": 12386
+                                "value": 12395
                             },
                             {
                                 "attr": "重症",
-                                "value": 5
+                                "value": 2
                             }
                         ]
                     },
                     {
                         "attr": "退院",
-                        "value": 517536
+                        "value": 519160
                     },
                     {
                         "attr": "死亡",
-                        "value": 1519
+                        "value": 1522
                     }
                 ]
             }
