@@ -3,7 +3,7 @@
     <page-header
       :icon="'mdi-chart-timeline-variant'"
       :title="this.$t('都内の最新感染動向')"
-      :date="Data.lastUpdate"
+      :date="lastUpdate"
     />
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
@@ -20,7 +20,7 @@ import WhatsNew from '@/components/WhatsNew.vue'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/confirmed-cases-number-card.vue'
 import InspectionSummaryCard from '@/components/cards/InspectionSummaryCard.vue'
-import Data from '@/data/data.json'
+import MainSummary from '@/data/main_summary.json'
 import News from '@/data/news.json'
 
 export default {
@@ -33,7 +33,7 @@ export default {
   },
   data() {
     const data = {
-      Data,
+      lastUpdate: MainSummary.lastUpdate,
       newsItems: News.newsItems
     }
     return data

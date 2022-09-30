@@ -51,15 +51,6 @@
         </li>
         <li :class="[$style.box]">
           <div :class="$style.content">
-            <span>{{ $t('自宅療養') }}</span>
-            <span>
-              <strong>{{ 自宅療養.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
             <span>{{ $t('調整中') }}</span>
             <span>
               <strong>{{ 調整中.toLocaleString() }}</strong>
@@ -72,15 +63,6 @@
             <span>{{ $t('死亡') }}</span>
             <span>
               <strong>{{ 死亡.toLocaleString() }}</strong>
-              <span :class="$style.unit">{{ $t('人') }}</span>
-            </span>
-          </div>
-        </li>
-        <li :class="[$style.box]">
-          <div :class="$style.content">
-            <span>{{ $t('退院・療養終了') }}</span>
-            <span>
-              <strong>{{ 退院.toLocaleString() }}</strong>
               <span :class="$style.unit">{{ $t('人') }}</span>
             </span>
           </div>
@@ -115,19 +97,11 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    自宅療養: {
-      type: Number,
-      required: true
-    },
     調整中: {
       type: Number,
       required: true
     },
     死亡: {
-      type: Number,
-      required: true
-    },
-    退院: {
       type: Number,
       required: true
     }
