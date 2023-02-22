@@ -194,6 +194,7 @@ const config: Configuration = {
         })
       ]
     },
+    extractCSS: true,
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     hardSource: process.env.NODE_ENV === 'development'
   },
