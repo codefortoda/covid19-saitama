@@ -4,21 +4,21 @@
     "children": [
         {
             "attr": "陽性患者数",
-            "value": 1795652,
+            "value": 1796034,
             "children": [
                 {
                     "attr": "入院中",
-                    "value": 181,
+                    "value": 165,
                     "children": [
                         {
                             "attr": "重症",
-                            "value": 4
+                            "value": 2
                         }
                     ]
                 },
                 {
                     "attr": "宿泊療養",
-                    "value": 46
+                    "value": 47
                 },
                 {
                     "attr": "自宅療養",
@@ -26,11 +26,11 @@
                 },
                 {
                     "attr": "新規公表分",
-                    "value": 338
+                    "value": 382
                 },
                 {
                     "attr": "死亡",
-                    "value": 3950
+                    "value": 3951
                 },
                 {
                     "attr": "退院・療養終了",
@@ -39,5 +39,5 @@
             ]
         }
     ],
-    "lastUpdate": "2023/03/24 21:00"
+    "lastUpdate": "2023/03/25 21:00"
 }
